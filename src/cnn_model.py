@@ -48,7 +48,15 @@ class FMASegmentDataset(Dataset):
         
         # Load npz
         data = np.load(npz_path)
-        mel_seg = data["mel"][segment_index] # shape: [128, 215]
+        mel_seg = data["mel"][segment_index] # shape: [128, frames]
+        
+        # Ensure exact time frame length of 215 by padding/truncating
+        target_frames = 215
+        if mel_seg.shape[1] < target_frames:
+            pad_width = target_frames - mel_seg.shape[1]
+            mel_seg = np.pad(mel_seg, ((0, 0), (0, pad_width)), mode='constant')
+        elif mel_seg.shape[1] > target_frames:
+            mel_seg = mel_seg[:, :target_frames]
         
         # Add channel dimension: [1, 128, 215]
         mel_tensor = torch.tensor(mel_seg, dtype=torch.float32).unsqueeze(0)
