@@ -47,6 +47,37 @@ def extract_mel_spectrogram(y, sr, n_mels=128):
 
     return mel_db    
 
+
+def extract_chroma(y, sr, n_chroma=12):
+    """
+    Extract chroma features (12 bins) from an audio waveform.
+    """
+
+    chroma = librosa.feature.chroma_stft(
+        y=y,
+        sr=sr,
+        n_chroma=n_chroma
+    )
+
+    return chroma
+
+
+def segment_audio(y, sr, segment_duration=5):
+    """
+    Split the raw audio waveform into non-overlapping segments of fixed duration.
+    """
+    segment_samples = int(segment_duration * sr)
+    num_segments = len(y) // segment_samples
+    
+    segments = []
+    for i in range(num_segments):
+        start = i * segment_samples
+        end = start + segment_samples
+        segments.append(y[start:end])
+        
+    return segments
+
+
 def plot_mel_spectrogram(mel_db, sr):
     """
     Display a Mel spectrogram.
@@ -68,7 +99,7 @@ def plot_mel_spectrogram(mel_db, sr):
 
 def normalize_features(feature):
     """
-    Normalize extracted audio features.
+    Normalize extracted audio features (zero mean, unit variance).
     """
 
     mean = np.mean(feature)
