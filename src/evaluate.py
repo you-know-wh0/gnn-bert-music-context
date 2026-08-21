@@ -10,8 +10,7 @@ from dataset import MusicCapsDataset
 MODEL_NAME = 'bert-base-uncased'
 BATCH_SIZE = 16
 MAX_LENGTH = 128
-CHECKPOINT = 'checkpoints/bert_epoch2.pt'   # your last (lowest val_loss) epoch
-
+CHECKPOINT = 'checkpoints/bert_epoch6.pt'
 with open('data/musiccaps/label_vocab.json') as f:
     label_vocab = json.load(f)
 num_labels = len(label_vocab)
