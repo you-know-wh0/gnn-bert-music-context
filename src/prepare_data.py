@@ -5,11 +5,9 @@ import json
 from collections import Counter
 from sklearn.model_selection import train_test_split
 
-# 1. Load the CSV again
 df = pd.read_csv('data/musiccaps/musiccaps-public.csv')
 df['aspect_list'] = df['aspect_list'].apply(ast.literal_eval)
 
-# 2. Count every tag across the whole dataset, keep the top 50
 tag_counts = Counter()
 for tags in df['aspect_list']:
     tag_counts.update(tags)
@@ -20,14 +18,12 @@ with open('data/musiccaps/label_vocab.json', 'w') as f:
 print("Saved 50 label vocabulary to data/musiccaps/label_vocab.json")
 print("Top 10 tags:", top_k_tags[:10])
 
-# 3. Turn each clip's tags into a 50-length list of 1s and 0s
 def multi_hot(tags, vocab):
     tag_set = set(tags)
     return [1.0 if t in tag_set else 0.0 for t in vocab]
 
 df['label_vector'] = df['aspect_list'].apply(lambda t: multi_hot(t, top_k_tags))
 
-# 4. Split: 70% train, 15% validation, 15% test
 train_df, temp_df = train_test_split(df, test_size=0.3, random_state=42)
 val_df, test_df = train_test_split(temp_df, test_size=0.5, random_state=42)
 

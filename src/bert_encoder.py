@@ -13,7 +13,7 @@ class BertTagClassifier(nn.Module):
 
     def forward(self, input_ids, attention_mask, return_embedding=False):
         out = self.bert(input_ids=input_ids, attention_mask=attention_mask)
-        cls = out.last_hidden_state[:, 0, :]     # [CLS] token → shape (batch, 768)
+        cls = out.last_hidden_state[:, 0, :]     
         logits = self.classifier(cls)
         if return_embedding:
             return logits, cls
