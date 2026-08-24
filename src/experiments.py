@@ -7,7 +7,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 from dataset import make_datasets
 from train_gnn import default_cfg, train
 
-DATA_KEYS = ("graph", "n_nodes", "feat", "with_std", "edge_mode", "k", "tau")
+DATA_KEYS = ("graph", "n_nodes", "feat", "with_std", "edge_mode", "k", "tau", "chord_smooth")
 
 
 def sweep_configs():
@@ -15,7 +15,8 @@ def sweep_configs():
 
     for mode in ("temporal", "knn", "threshold", "full"):
         runs.append((f"graph_{mode}", dict(edge_mode=mode)))
-    runs.append(("graph_chord", dict(graph="chord")))
+    runs.append(("graph_chord", dict(graph="chord", chord_smooth=1)))
+    runs.append(("graph_chordsmooth", dict(graph="chord", chord_smooth=21)))
 
     for n in (6, 15, 30, 60):
         runs.append((f"nodes_{n}", dict(n_nodes=n)))
@@ -56,7 +57,8 @@ def run_sweep(labels="multi", top_k=20, epochs=60, results_dir="results/experime
             datasets, vocab = make_datasets(
                 labels=cfg["labels"], top_k=cfg["top_k"], graph=cfg["graph"],
                 n_nodes=cfg["n_nodes"], feat=cfg["feat"], with_std=cfg["with_std"],
-                edge_mode=cfg["edge_mode"], k=cfg["k"], tau=cfg["tau"])
+                edge_mode=cfg["edge_mode"], k=cfg["k"], tau=cfg["tau"],
+                chord_smooth=cfg["chord_smooth"])
             cache_key = key
         print(f"\n[{i}/{len(configs)}] {name}", flush=True)
         res, _ = train(cfg, datasets, vocab, verbose=True, save=True)

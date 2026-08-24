@@ -49,7 +49,8 @@ def train(cfg, datasets=None, vocab=None, verbose=True, save=True):
         datasets, vocab = make_datasets(
             labels=cfg["labels"], top_k=cfg["top_k"], graph=cfg["graph"],
             n_nodes=cfg["n_nodes"], feat=cfg["feat"], with_std=cfg["with_std"],
-            edge_mode=cfg["edge_mode"], k=cfg["k"], tau=cfg["tau"])
+            edge_mode=cfg["edge_mode"], k=cfg["k"], tau=cfg["tau"],
+            chord_smooth=cfg["chord_smooth"])
     loaders = make_loaders(datasets, cfg["batch_size"])
 
     in_dim = datasets["training"][0].x.shape[1]
@@ -123,7 +124,8 @@ def train(cfg, datasets=None, vocab=None, verbose=True, save=True):
 
 def default_cfg(**over):
     cfg = dict(labels="multi", top_k=20, graph="segment", n_nodes=30, feat="mel+chroma",
-               with_std=False, edge_mode="knn", k=3, tau=0.7, kind="GraphSAGE", readout="mean",
+               with_std=False, edge_mode="knn", k=3, tau=0.7, chord_smooth=21,
+               kind="GraphSAGE", readout="mean",
                hidden=256, out_dim=256, layers=3, dropout=0.3, lr=1e-3, weight_decay=1e-4,
                batch_size=256, epochs=80, patience=15, seed=42, results_dir="results",
                run_name="gnn")

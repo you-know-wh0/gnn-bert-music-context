@@ -7,10 +7,10 @@ import torch
 from torch_geometric.data import Data
 
 sys.path.insert(0, os.path.dirname(__file__))
+import features_store
 import graph_builder as gb
 from labels import load_split
 
-FEATURE_DIR = "data/processed/audio_features"
 OUT = "data/processed/graph_samples"
 
 
@@ -20,7 +20,7 @@ def export(n=24, n_nodes=30, edge_mode="knn", k=3):
     picked, seen = [], {}
     for tid, info in split.items():
         g = info.get("genre", "")
-        if not g or not os.path.exists(f"{FEATURE_DIR}/{tid}.npz"):
+        if not g or not features_store.has(tid):
             continue
         if seen.get(g, 0) >= 2:
             continue
@@ -31,7 +31,7 @@ def export(n=24, n_nodes=30, edge_mode="knn", k=3):
 
     index = []
     for tid, info in picked:
-        mel, chroma = gb.stitch(f"{FEATURE_DIR}/{tid}.npz")
+        mel, chroma = gb.stitch(tid)
         x = gb.node_features(mel, chroma, n_nodes)
         x = (x - x.mean(0)) / (x.std(0) + 1e-6)
         ei, ea = gb.build_edges(x, edge_mode, k)

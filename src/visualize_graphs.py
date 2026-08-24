@@ -9,10 +9,10 @@ import networkx as nx
 import numpy as np
 
 sys.path.insert(0, os.path.dirname(__file__))
+import features_store
 import graph_builder as gb
 from labels import load_split
 
-FEATURE_DIR = "data/processed/audio_features"
 PLOTS = "plots"
 
 
@@ -60,7 +60,7 @@ def pick_examples(n=6):
     by_genre, out = {}, []
     for tid, info in split.items():
         g = info.get("genre", "")
-        if g and g not in by_genre and os.path.exists(f"{FEATURE_DIR}/{tid}.npz"):
+        if g and g not in by_genre and features_store.has(tid):
             by_genre[g] = tid
     for g, tid in sorted(by_genre.items())[:n]:
         out.append((tid, g))
@@ -70,7 +70,7 @@ def pick_examples(n=6):
 def plot_segment_graphs(examples, n_nodes=30, edge_mode="knn", k=3, out="segment_graphs.png"):
     fig, axes = plt.subplots(2, 3, figsize=(13, 8.5))
     for ax, (tid, genre) in zip(axes.ravel(), examples):
-        mel, chroma = gb.stitch(f"{FEATURE_DIR}/{tid}.npz")
+        mel, chroma = gb.stitch(tid)
         x = gb.node_features(mel, chroma, n_nodes)
         x = (x - x.mean(0)) / (x.std(0) + 1e-6)
         ei, ea = gb.build_edges(x, edge_mode, k)
@@ -85,7 +85,7 @@ def plot_segment_graphs(examples, n_nodes=30, edge_mode="knn", k=3, out="segment
 def plot_chord_graphs(examples, out="chord_graphs.png"):
     fig, axes = plt.subplots(2, 3, figsize=(13, 8.5))
     for ax, (tid, genre) in zip(axes.ravel(), examples):
-        _, chroma = gb.stitch(f"{FEATURE_DIR}/{tid}.npz")
+        _, chroma = gb.stitch(tid)
         x, ei, ea = gb.chord_graph(chroma)
         draw_chord_graph(ax, x, ei, ea, f"{genre} — {tid}\n{len(x)} chords, {ei.shape[1]} transitions")
     fig.suptitle("Chord-transition graphs (nodes = detected triads, size = duration share,\n"
@@ -98,7 +98,7 @@ def plot_chord_graphs(examples, out="chord_graphs.png"):
 def plot_similarity_matrices(examples, n_nodes=30, out="self_similarity.png"):
     fig, axes = plt.subplots(2, 3, figsize=(13, 8))
     for ax, (tid, genre) in zip(axes.ravel(), examples):
-        mel, chroma = gb.stitch(f"{FEATURE_DIR}/{tid}.npz")
+        mel, chroma = gb.stitch(tid)
         x = gb.node_features(mel, chroma, n_nodes)
         x = (x - x.mean(0)) / (x.std(0) + 1e-6)
         im = ax.imshow(gb.cosine_sim(x), cmap="magma", vmin=-1, vmax=1)
@@ -112,13 +112,13 @@ def plot_similarity_matrices(examples, n_nodes=30, out="self_similarity.png"):
 
 def plot_graph_stats(n_tracks=800, n_nodes=30, out="graph_statistics.png"):
     split = load_split("training")
-    ids = [t for t in list(split)[:n_tracks * 2] if os.path.exists(f"{FEATURE_DIR}/{t}.npz")][:n_tracks]
+    ids = [t for t in list(split)[:n_tracks * 2] if features_store.has(t)][:n_tracks]
     modes = ["temporal", "knn", "threshold", "full"]
     edge_counts = {m: [] for m in modes}
     chord_nodes, chord_edges = [], []
 
     for tid in ids:
-        mel, chroma = gb.stitch(f"{FEATURE_DIR}/{tid}.npz")
+        mel, chroma = gb.stitch(tid)
         x = gb.node_features(mel, chroma, n_nodes)
         x = (x - x.mean(0)) / (x.std(0) + 1e-6)
         for m in modes:

@@ -2,7 +2,6 @@ import json
 import os
 import sys
 import time
-from multiprocessing import Pool
 from pathlib import Path
 
 import numpy as np
@@ -11,42 +10,12 @@ import torch.nn as nn
 from torch.utils.data import DataLoader, Dataset
 
 sys.path.insert(0, os.path.dirname(__file__))
+import features_store
 from cnn_model import MelSpectrogramCNN
 from labels import build_vocab, encode_labels, load_split
 from metrics import multilabel_metrics, singlelabel_metrics, tune_thresholds
 
-FEATURE_DIR = "data/processed/audio_features"
-CACHE = "data/processed/cache/mel_f16.npy"
-IDS = "data/processed/cache/mel_ids.json"
-FRAMES, SEGS, MELS = 215, 6, 128
-
-
-def _load(tid):
-    mel = np.load(f"{FEATURE_DIR}/{tid}.npz")["mel"]
-    out = np.zeros((SEGS, MELS, FRAMES), dtype=np.float16)
-    n = min(mel.shape[-1], FRAMES)
-    out[:, :, :n] = mel[:, :, :n]
-    return out
-
-
-def build_mel_cache(workers=24):
-    if os.path.exists(CACHE):
-        return json.load(open(IDS))
-    Path(CACHE).parent.mkdir(parents=True, exist_ok=True)
-    ids = sorted(f[:-4] for f in os.listdir(FEATURE_DIR) if f.endswith(".npz"))
-    arr = np.lib.format.open_memmap(CACHE, mode="w+", dtype=np.float16,
-                                    shape=(len(ids), SEGS, MELS, FRAMES))
-    print(f"building mel cache: {len(ids)} tracks -> {arr.nbytes/1e9:.1f} GB", flush=True)
-    t0 = time.time()
-    with Pool(workers) as pool:
-        for i, block in enumerate(pool.imap(_load, ids, chunksize=32)):
-            arr[i] = block
-            if (i + 1) % 5000 == 0:
-                print(f"  {i+1}/{len(ids)}", flush=True)
-    arr.flush()
-    json.dump(ids, open(IDS, "w"))
-    print(f"cache built in {(time.time()-t0)/60:.1f} min", flush=True)
-    return ids
+SEGS = features_store.SEGS
 
 
 class SegmentDataset(Dataset):
@@ -77,15 +46,15 @@ def main(labels="multi", top_k=20, epochs=12, batch_size=256, lr=1e-3, seed=42,
          results_dir="results", workers=8):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     torch.manual_seed(seed)
-    ids = build_mel_cache()
-    pos = {t: i for i, t in enumerate(ids)}
-    mel = np.load(CACHE, mmap_mode="r")
+    store = features_store.load()
+    pos, mel = store["pos"], store["mel"]
+    usable = set(features_store.usable_ids())
 
     vocab = build_vocab("top" if labels == "top" else "multi", top_k)
     data = {}
     for name in ("training", "validation", "test"):
         tids, y = encode_labels(load_split(name), vocab, labels)
-        keep = [i for i, t in enumerate(tids) if t in pos]
+        keep = [i for i, t in enumerate(tids) if t in usable]
         rows = np.array([pos[tids[i]] for i in keep])
         data[name] = (rows, y[keep].astype(np.float32 if labels == "multi" else np.int64))
 
@@ -114,13 +83,14 @@ def main(labels="multi", top_k=20, epochs=12, batch_size=256, lr=1e-3, seed=42,
             total += loss.item() * x.size(0)
         sched.step()
 
-        rows, y_val = data["validation"]
-        probs = collect(model, loaders["validation"], device, len(rows), len(vocab), multi)
+        train_loss = total / (len(data["training"][0]) * SEGS)
+        v_rows, y_val = data["validation"]
+        probs = collect(model, loaders["validation"], device, len(v_rows), len(vocab), multi)
         m = (multilabel_metrics(y_val, probs, tune_thresholds(y_val, probs)) if multi
              else singlelabel_metrics(y_val.astype(int), probs))
-        history.append({"epoch": epoch, "train_loss": total / (len(rows) * SEGS),
+        history.append({"epoch": epoch, "train_loss": train_loss,
                         "val_macro_f1": m["macro_f1"], "val_auc_pr": m["auc_pr"]})
-        print(f"  ep {epoch:2d} | loss {total/(len(rows)*SEGS):.4f} | val macroF1 {m['macro_f1']:.4f} "
+        print(f"  ep {epoch:2d} | loss {train_loss:.4f} | val macroF1 {m['macro_f1']:.4f} "
               f"AUC-PR {m['auc_pr']:.4f} | {(time.time()-t0)/60:.1f} min", flush=True)
         if m["auc_pr"] > best:
             best = m["auc_pr"]

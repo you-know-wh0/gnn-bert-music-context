@@ -1,0 +1,143 @@
+caching seg_60_melchroma_1: 24980 tracks
+saved data/processed/cache/seg_60_melchroma_1.pt
+
+=== best_gat_knn ===
+GAT | in_dim 280 | 20 classes | 175,252 params | nodes 60 | edges 298
+  ep   1 | loss 0.2714/0.1814 | val macroF1 0.3399 microF1 0.4024 AUC-PR 0.2925
+  ep   5 | loss 0.1596/0.1597 | val macroF1 0.4240 microF1 0.4848 AUC-PR 0.3801
+  ep  10 | loss 0.1419/0.1565 | val macroF1 0.4369 microF1 0.4871 AUC-PR 0.3949
+  ep  15 | loss 0.1275/0.1640 | val macroF1 0.4285 microF1 0.5049 AUC-PR 0.3853
+  ep  20 | loss 0.1148/0.1712 | val macroF1 0.4254 microF1 0.5002 AUC-PR 0.3811
+  ep  25 | loss 0.1048/0.1805 | val macroF1 0.4276 microF1 0.5072 AUC-PR 0.3814
+  early stop at epoch 25
+  TEST macroF1 0.3544 | microF1 0.4410 | AUC-PR 0.3673 | 0.6 min
+
+=== best_sage_knn ===
+GraphSAGE | in_dim 280 | 20 classes | 311,444 params | nodes 60 | edges 298
+  ep   1 | loss 0.2710/0.1783 | val macroF1 0.3504 microF1 0.4296 AUC-PR 0.3029
+  ep   5 | loss 0.1647/0.1636 | val macroF1 0.4141 microF1 0.4745 AUC-PR 0.3600
+  ep  10 | loss 0.1495/0.1633 | val macroF1 0.4180 microF1 0.4569 AUC-PR 0.3714
+  ep  15 | loss 0.1358/0.1683 | val macroF1 0.4247 microF1 0.4817 AUC-PR 0.3773
+  ep  20 | loss 0.1255/0.1728 | val macroF1 0.4143 microF1 0.4898 AUC-PR 0.3692
+  ep  25 | loss 0.1141/0.1811 | val macroF1 0.4100 microF1 0.4789 AUC-PR 0.3641
+  ep  30 | loss 0.1041/0.1934 | val macroF1 0.3978 microF1 0.4837 AUC-PR 0.3493
+  early stop at epoch 30
+  TEST macroF1 0.3447 | microF1 0.4467 | AUC-PR 0.3621 | 0.7 min
+
+=== best_gat_full ===
+GAT | in_dim 280 | 20 classes | 175,252 params | nodes 60 | edges 3540
+  ep   1 | loss 0.2695/0.1796 | val macroF1 0.3384 microF1 0.3780 AUC-PR 0.2869
+  ep   5 | loss 0.1570/0.1641 | val macroF1 0.4147 microF1 0.4629 AUC-PR 0.3682
+  ep  10 | loss 0.1347/0.1641 | val macroF1 0.4226 microF1 0.4800 AUC-PR 0.3780
+  ep  15 | loss 0.1123/0.1796 | val macroF1 0.4080 microF1 0.4873 AUC-PR 0.3645
+  ep  20 | loss 0.0932/0.1960 | val macroF1 0.4042 microF1 0.4888 AUC-PR 0.3595
+  ep  25 | loss 0.0790/0.2167 | val macroF1 0.3964 microF1 0.4872 AUC-PR 0.3540
+  early stop at epoch 25
+  TEST macroF1 0.3366 | microF1 0.4336 | AUC-PR 0.3495 | 1.5 min
+
+=== best_gat_meanmax ===
+GAT | in_dim 280 | 20 classes | 208,020 params | nodes 60 | edges 298
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+  ep   1 | loss 0.2451/0.1849 | val macroF1 0.3454 microF1 0.4278 AUC-PR 0.2878
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+  ep   5 | loss 0.1608/0.1595 | val macroF1 0.4254 microF1 0.4819 AUC-PR 0.3789
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+  ep  10 | loss 0.1445/0.1586 | val macroF1 0.4312 microF1 0.4894 AUC-PR 0.3888
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+  ep  15 | loss 0.1308/0.1640 | val macroF1 0.4371 microF1 0.5115 AUC-PR 0.3944
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+  ep  20 | loss 0.1186/0.1659 | val macroF1 0.4338 microF1 0.5186 AUC-PR 0.3951
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+  ep  25 | loss 0.1076/0.1737 | val macroF1 0.4341 microF1 0.5249 AUC-PR 0.3899
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+  ep  30 | loss 0.0973/0.1832 | val macroF1 0.4119 microF1 0.4842 AUC-PR 0.3698
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+  ep  35 | loss 0.0900/0.1907 | val macroF1 0.4210 microF1 0.4792 AUC-PR 0.3730
+  early stop at epoch 35
+  TEST macroF1 0.3540 | microF1 0.4758 | AUC-PR 0.3579 | 0.9 min
+caching chord_21: 24980 tracks
+saved data/processed/cache/chord_21.pt
+
+=== chord_smoothed ===
+GAT | in_dim 37 | 20 classes | 113,044 params | nodes 11 | edges 45
+  ep   1 | loss 0.2998/0.2341 | val macroF1 0.1783 microF1 0.2188 AUC-PR 0.1244
+  ep   5 | loss 0.2202/0.2081 | val macroF1 0.2671 microF1 0.3377 AUC-PR 0.2021
+  ep  10 | loss 0.2091/0.2039 | val macroF1 0.2892 microF1 0.3662 AUC-PR 0.2281
+  ep  15 | loss 0.2017/0.2029 | val macroF1 0.2927 microF1 0.3358 AUC-PR 0.2389
+  ep  20 | loss 0.1963/0.2016 | val macroF1 0.2965 microF1 0.3479 AUC-PR 0.2390
+  ep  25 | loss 0.1900/0.2031 | val macroF1 0.3044 microF1 0.3828 AUC-PR 0.2420
+  ep  30 | loss 0.1850/0.2025 | val macroF1 0.3097 microF1 0.3767 AUC-PR 0.2487
+  ep  35 | loss 0.1800/0.2040 | val macroF1 0.3080 microF1 0.3817 AUC-PR 0.2451
+  ep  40 | loss 0.1753/0.2065 | val macroF1 0.3059 microF1 0.3747 AUC-PR 0.2467
+  early stop at epoch 44
+  TEST macroF1 0.2500 | microF1 0.3397 | AUC-PR 0.2330 | 0.8 min
+
+| run | nodes | edges | params | Macro-F1 | Micro-F1 | AUC-PR |
+|---|---|---|---|---|---|---|
+| best_gat_knn | 60 | 298 | 175,252 | 0.3544 | 0.4410 | 0.3673 |
+| best_sage_knn | 60 | 298 | 311,444 | 0.3447 | 0.4467 | 0.3621 |
+| best_gat_meanmax | 60 | 298 | 208,020 | 0.3540 | 0.4758 | 0.3579 |
+| best_gat_full | 60 | 3540 | 175,252 | 0.3366 | 0.4336 | 0.3495 |
+| chord_smoothed | 11 | 45 | 113,044 | 0.2500 | 0.3397 | 0.2330 |

@@ -125,7 +125,7 @@ def main(checkpoint, results_dir="results", skip_tsne=False):
     print("\n" + table + "\n")
 
     run = Path(checkpoint).stem
-    hist_path = f"{results_dir}/{run}.json"
+    hist_path = str(Path(checkpoint).with_suffix(".json"))
     if os.path.exists(hist_path):
         plot_curves(json.load(open(hist_path))["history"], f"{PLOTS}/{run}_training_curves.png")
     support = test_y.sum(0) if multi else np.bincount(test_y.astype(int), minlength=len(vocab))

@@ -1,0 +1,67 @@
+25000 files | device NVIDIA GeForce RTX 4090
+48/25000  128/s  eta 3.2 min
+[src/libmpg123/parse.c:do_readahead():1083] warning: Cannot read next header, a one-frame stream? Duh...
+[src/libmpg123/parse.c:do_readahead():1083] warning: Cannot read next header, a one-frame stream? Duh...
+[src/libmpg123/layer3.c:INT123_do_layer3():1844] error: dequantization failed!
+1968/25000  270/s  eta 1.4 min
+[src/libmpg123/layer3.c:INT123_do_layer3():1774] error: part2_3_length (3264) too large for available bit count (3224)
+[src/libmpg123/layer3.c:INT123_do_layer3():1804] error: dequantization failed!
+3888/25000  274/s  eta 1.3 min
+[src/libmpg123/layer3.c:INT123_do_layer3():1804] error: dequantization failed!
+[src/libmpg123/layer3.c:INT123_do_layer3():1804] error: dequantization failed!
+[src/libmpg123/layer3.c:INT123_do_layer3():1804] error: dequantization failed!
+5808/25000  276/s  eta 1.2 min
+[src/libmpg123/layer3.c:INT123_do_layer3():1804] error: dequantization failed!
+7728/25000  276/s  eta 1.0 min
+[src/libmpg123/layer3.c:INT123_do_layer3():1774] error: part2_3_length (3360) too large for available bit count (3240)
+[src/libmpg123/layer3.c:INT123_do_layer3():1774] error: part2_3_length (3328) too large for available bit count (3240)
+[src/libmpg123/layer3.c:INT123_do_layer3():1804] error: dequantization failed!
+[src/libmpg123/layer3.c:INT123_do_layer3():1804] error: dequantization failed!
+9648/25000  276/s  eta 0.9 min
+[src/libmpg123/parse.c:do_readahead():1083] warning: Cannot read next header, a one-frame stream? Duh...
+11568/25000  273/s  eta 0.8 min
+[src/libmpg123/layer3.c:INT123_do_layer3():1844] error: dequantization failed!
+[src/libmpg123/parse.c:do_readahead():1083] warning: Cannot read next header, a one-frame stream? Duh...
+13488/25000  273/s  eta 0.7 min
+15408/25000  273/s  eta 0.6 min
+[src/libmpg123/parse.c:do_readahead():1083] warning: Cannot read next header, a one-frame stream? Duh...
+[src/libmpg123/parse.c:do_readahead():1083] warning: Cannot read next header, a one-frame stream? Duh...
+[src/libmpg123/parse.c:do_readahead():1083] warning: Cannot read next header, a one-frame stream? Duh...
+Note: Illegal Audio-MPEG-Header 0x00000000 at offset 33361.
+Note: Trying to resync...
+Note: Skipped 1024 bytes in input.
+[src/libmpg123/parse.c:wetwork():1349] error: Giving up resync after 1024 bytes - your stream is not nice... (maybe increasing resync limit could help).
+Note: Illegal Audio-MPEG-Header 0x00000000 at offset 22401.
+Note: Trying to resync...
+Note: Skipped 1024 bytes in input.
+[src/libmpg123/parse.c:wetwork():1349] error: Giving up resync after 1024 bytes - your stream is not nice... (maybe increasing resync limit could help).
+[src/libmpg123/parse.c:do_readahead():1083] warning: Cannot read next header, a one-frame stream? Duh...
+[src/libmpg123/layer3.c:INT123_do_layer3():1804] error: dequantization failed!
+Note: Illegal Audio-MPEG-Header 0x00000000 at offset 63168.
+Note: Trying to resync...
+Note: Skipped 1024 bytes in input.
+[src/libmpg123/parse.c:wetwork():1349] error: Giving up resync after 1024 bytes - your stream is not nice... (maybe increasing resync limit could help).
+Note: Illegal Audio-MPEG-Header 0x00000000 at offset 187493.
+Note: Trying to resync...
+Note: Skipped 1024 bytes in input.
+[src/libmpg123/parse.c:wetwork():1349] error: Giving up resync after 1024 bytes - your stream is not nice... (maybe increasing resync limit could help).
+Note: Illegal Audio-MPEG-Header 0x00000000 at offset 106439.
+Note: Trying to resync...
+Note: Skipped 1024 bytes in input.
+[src/libmpg123/parse.c:wetwork():1349] error: Giving up resync after 1024 bytes - your stream is not nice... (maybe increasing resync limit could help).
+[src/libmpg123/parse.c:do_readahead():1083] warning: Cannot read next header, a one-frame stream? Duh...
+[src/libmpg123/parse.c:do_readahead():1083] warning: Cannot read next header, a one-frame stream? Duh...
+[src/libmpg123/layer3.c:INT123_do_layer3():1804] error: dequantization failed!
+[src/libmpg123/parse.c:do_readahead():1083] warning: Cannot read next header, a one-frame stream? Duh...
+[src/libmpg123/layer3.c:INT123_do_layer3():1804] error: dequantization failed!
+[src/libmpg123/layer3.c:INT123_do_layer3():1804] error: dequantization failed!
+17328/25000  274/s  eta 0.5 min
+19248/25000  273/s  eta 0.4 min
+[src/libmpg123/parse.c:do_readahead():1083] warning: Cannot read next header, a one-frame stream? Duh...
+[src/libmpg123/parse.c:do_readahead():1083] warning: Cannot read next header, a one-frame stream? Duh...
+21168/25000  272/s  eta 0.2 min
+[src/libmpg123/parse.c:do_readahead():1083] warning: Cannot read next header, a one-frame stream? Duh...
+23088/25000  272/s  eta 0.1 min
+[src/libmpg123/parse.c:do_readahead():1083] warning: Cannot read next header, a one-frame stream? Duh...
+25000/25000  271/s  eta 0.0 min
+done in 1.5 min | 20 failed | 9.0 GB
