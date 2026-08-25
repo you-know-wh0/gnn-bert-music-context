@@ -1,0 +1,24 @@
+=== GNN (16-class genre_top) ===
+GAT | in_dim 280 | 16 classes | 174,736 params | nodes 60 | edges 298
+  ep   1 | loss 1.6028/1.3000 | val macroF1 0.2880 microF1 0.5931 AUC-PR 0.4210
+  ep   5 | loss 1.0630/1.1607 | val macroF1 0.3651 microF1 0.6406 AUC-PR 0.4400
+  ep  10 | loss 0.8751/1.2002 | val macroF1 0.4001 microF1 0.6454 AUC-PR 0.4462
+  ep  15 | loss 0.7202/1.2940 | val macroF1 0.3702 microF1 0.6218 AUC-PR 0.4274
+  early stop at epoch 18
+  TEST macroF1 0.3341 | microF1 0.6069 | AUC-PR 0.4022 | 0.3 min
+
+=== CNN (16-class genre_top) ===
+CNN baseline (Person 1 architecture) | top | 16 classes | 19904 train tracks
+  ep  1 | loss 1.3740 | val macroF1 0.3235 AUC-PR 0.4595 | 0.3 min
+  ep  2 | loss 1.1916 | val macroF1 0.3564 AUC-PR 0.4574 | 0.3 min
+  ep  3 | loss 1.1293 | val macroF1 0.3764 AUC-PR 0.4695 | 0.3 min
+  ep  4 | loss 1.0864 | val macroF1 0.3492 AUC-PR 0.4670 | 0.3 min
+  ep  5 | loss 1.0462 | val macroF1 0.4141 AUC-PR 0.4763 | 0.3 min
+  ep  6 | loss 1.0098 | val macroF1 0.3737 AUC-PR 0.4862 | 0.3 min
+  ep  7 | loss 0.9771 | val macroF1 0.4338 AUC-PR 0.5059 | 0.3 min
+  ep  8 | loss 0.9464 | val macroF1 0.3858 AUC-PR 0.4925 | 0.3 min
+  ep  9 | loss 0.9167 | val macroF1 0.4548 AUC-PR 0.5349 | 0.3 min
+  ep 10 | loss 0.8941 | val macroF1 0.4242 AUC-PR 0.5110 | 0.3 min
+  ep 11 | loss 0.8763 | val macroF1 0.4377 AUC-PR 0.5281 | 0.3 min
+  ep 12 | loss 0.8648 | val macroF1 0.4429 AUC-PR 0.5234 | 0.3 min
+  TEST macroF1 0.4209 | microF1 0.6652 | AUC-PR 0.4814

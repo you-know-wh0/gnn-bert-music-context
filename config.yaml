@@ -1,0 +1,35 @@
+data:
+  audio_dir: data/raw/fma_medium
+  metadata_dir: data/raw/metadata/fma_metadata
+  feature_dir: data/processed/audio_features
+  cache_dir: data/processed/cache
+  splits_dir: data/splits
+
+labels:
+  mode: multi          # multi = genres_all multi-label | top = genre_top 16-class
+  top_k: 20
+
+graph:
+  type: segment        # segment | chord
+  n_nodes: 30
+  feat: mel+chroma     # mel | chroma | mel+chroma
+  with_std: false
+  edge_mode: knn       # temporal | knn | threshold | full
+  k: 3
+  tau: 0.7
+
+model:
+  kind: GraphSAGE      # GraphSAGE | GAT | GCN | GIN
+  hidden: 256
+  out_dim: 256
+  layers: 3
+  dropout: 0.3
+  readout: mean        # mean | mean+max
+
+train:
+  lr: 0.001
+  weight_decay: 0.0001
+  batch_size: 256
+  epochs: 80
+  patience: 15
+  seed: 42

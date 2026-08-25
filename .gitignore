@@ -6,3 +6,6 @@ data/raw/
 data/processed/
 checkpoints/
 .DS_Store
+data/processed/*
+!data/processed/graph_samples/
+env_setup.log

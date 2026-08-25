@@ -1,0 +1,353 @@
+caching chord: 24980 tracks
+saved data/processed/cache/chord.pt
+
+[1/21] graph_chord
+GraphSAGE | in_dim 37 | 20 classes | 318,868 params | nodes 24 | edges 258
+  ep   1 | loss 0.2982/0.2176 | val macroF1 0.2154 microF1 0.2927 AUC-PR 0.1662
+  ep   5 | loss 0.2111/0.2013 | val macroF1 0.2817 microF1 0.3441 AUC-PR 0.2249
+  ep  10 | loss 0.2003/0.1959 | val macroF1 0.3210 microF1 0.3592 AUC-PR 0.2689
+  ep  15 | loss 0.1922/0.1917 | val macroF1 0.3377 microF1 0.4272 AUC-PR 0.2824
+  ep  20 | loss 0.1868/0.1923 | val macroF1 0.3342 microF1 0.4157 AUC-PR 0.2866
+  ep  25 | loss 0.1808/0.1921 | val macroF1 0.3368 microF1 0.4080 AUC-PR 0.2865
+  ep  30 | loss 0.1765/0.1939 | val macroF1 0.3387 microF1 0.4019 AUC-PR 0.2896
+  ep  35 | loss 0.1716/0.1915 | val macroF1 0.3481 microF1 0.4000 AUC-PR 0.2942
+  ep  40 | loss 0.1675/0.1932 | val macroF1 0.3434 microF1 0.3929 AUC-PR 0.2953
+  ep  45 | loss 0.1652/0.1942 | val macroF1 0.3473 microF1 0.4192 AUC-PR 0.2973
+  ep  50 | loss 0.1633/0.1953 | val macroF1 0.3473 microF1 0.4259 AUC-PR 0.2979
+  ep  55 | loss 0.1628/0.1953 | val macroF1 0.3475 microF1 0.4138 AUC-PR 0.2981
+  early stop at epoch 59
+  TEST macroF1 0.2911 | microF1 0.3970 | AUC-PR 0.2870 | 1.9 min
+caching seg_15_melchroma_0: 24980 tracks
+saved data/processed/cache/seg_15_melchroma_0.pt
+
+[2/21] nodes_15
+GraphSAGE | in_dim 140 | 20 classes | 371,604 params | nodes 15 | edges 73
+  ep   1 | loss 0.2722/0.1880 | val macroF1 0.3133 microF1 0.3787 AUC-PR 0.2589
+  ep   5 | loss 0.1751/0.1735 | val macroF1 0.3885 microF1 0.4393 AUC-PR 0.3308
+  ep  10 | loss 0.1555/0.1774 | val macroF1 0.3865 microF1 0.4818 AUC-PR 0.3313
+  ep  15 | loss 0.1413/0.1858 | val macroF1 0.3755 microF1 0.4433 AUC-PR 0.3278
+  ep  20 | loss 0.1268/0.1984 | val macroF1 0.3683 microF1 0.4408 AUC-PR 0.3147
+  ep  25 | loss 0.1126/0.2087 | val macroF1 0.3684 microF1 0.4480 AUC-PR 0.3162
+  early stop at epoch 26
+  TEST macroF1 0.3136 | microF1 0.4294 | AUC-PR 0.3130 | 0.8 min
+caching seg_30_chroma_0: 24980 tracks
+saved data/processed/cache/seg_30_chroma_0.pt
+
+[3/21] feat_chroma
+GraphSAGE | in_dim 12 | 20 classes | 306,068 params | nodes 30 | edges 148
+  ep   1 | loss 0.2925/0.2247 | val macroF1 0.2106 microF1 0.2433 AUC-PR 0.1562
+  ep   5 | loss 0.2177/0.2130 | val macroF1 0.2571 microF1 0.3112 AUC-PR 0.2071
+  ep  10 | loss 0.2096/0.2071 | val macroF1 0.2840 microF1 0.3682 AUC-PR 0.2289
+  ep  15 | loss 0.2039/0.2025 | val macroF1 0.2951 microF1 0.3779 AUC-PR 0.2436
+  ep  20 | loss 0.1988/0.2012 | val macroF1 0.3019 microF1 0.3828 AUC-PR 0.2500
+  ep  25 | loss 0.1937/0.2011 | val macroF1 0.3079 microF1 0.3779 AUC-PR 0.2535
+  ep  30 | loss 0.1900/0.1988 | val macroF1 0.3071 microF1 0.3810 AUC-PR 0.2562
+  ep  35 | loss 0.1864/0.1981 | val macroF1 0.3115 microF1 0.3934 AUC-PR 0.2601
+  ep  40 | loss 0.1832/0.1983 | val macroF1 0.3128 microF1 0.4014 AUC-PR 0.2612
+  ep  45 | loss 0.1802/0.1996 | val macroF1 0.3135 microF1 0.3926 AUC-PR 0.2615
+  ep  50 | loss 0.1786/0.1989 | val macroF1 0.3170 microF1 0.3975 AUC-PR 0.2639
+  early stop at epoch 53
+  TEST macroF1 0.2707 | microF1 0.3699 | AUC-PR 0.2594 | 1.1 min
+caching seg_30_mel_0: 24980 tracks
+saved data/processed/cache/seg_30_mel_0.pt
+
+[4/21] feat_mel
+GraphSAGE | in_dim 128 | 20 classes | 365,460 params | nodes 30 | edges 148
+  ep   1 | loss 0.2741/0.1891 | val macroF1 0.2988 microF1 0.3465 AUC-PR 0.2444
+  ep   5 | loss 0.1758/0.1754 | val macroF1 0.3745 microF1 0.4543 AUC-PR 0.3212
+  ep  10 | loss 0.1575/0.1792 | val macroF1 0.3809 microF1 0.4342 AUC-PR 0.3224
+  ep  15 | loss 0.1427/0.1899 | val macroF1 0.3748 microF1 0.4219 AUC-PR 0.3191
+  ep  20 | loss 0.1288/0.2003 | val macroF1 0.3663 microF1 0.4469 AUC-PR 0.3128
+  early stop at epoch 23
+  TEST macroF1 0.3240 | microF1 0.4088 | AUC-PR 0.3196 | 0.4 min
+
+[5/21] graph_full
+GraphSAGE | in_dim 140 | 20 classes | 371,604 params | nodes 30 | edges 870
+  ep   1 | loss 0.2712/0.1888 | val macroF1 0.3153 microF1 0.3902 AUC-PR 0.2634
+  ep   5 | loss 0.1725/0.1730 | val macroF1 0.3830 microF1 0.4368 AUC-PR 0.3320
+  ep  10 | loss 0.1501/0.1774 | val macroF1 0.3963 microF1 0.4797 AUC-PR 0.3400
+  ep  15 | loss 0.1323/0.1871 | val macroF1 0.3763 microF1 0.4454 AUC-PR 0.3259
+  ep  20 | loss 0.1131/0.2040 | val macroF1 0.3776 microF1 0.4548 AUC-PR 0.3269
+  early stop at epoch 23
+  TEST macroF1 0.3307 | microF1 0.4391 | AUC-PR 0.3216 | 0.5 min
+
+[6/21] graph_knn
+GraphSAGE | in_dim 140 | 20 classes | 371,604 params | nodes 30 | edges 148
+  ep   1 | loss 0.2723/0.1882 | val macroF1 0.3078 microF1 0.3692 AUC-PR 0.2592
+  ep   5 | loss 0.1740/0.1722 | val macroF1 0.3849 microF1 0.4473 AUC-PR 0.3303
+  ep  10 | loss 0.1540/0.1760 | val macroF1 0.4007 microF1 0.4717 AUC-PR 0.3431
+  ep  15 | loss 0.1389/0.1835 | val macroF1 0.3871 microF1 0.4554 AUC-PR 0.3329
+  ep  20 | loss 0.1238/0.1971 | val macroF1 0.3752 microF1 0.4559 AUC-PR 0.3231
+  ep  25 | loss 0.1100/0.2103 | val macroF1 0.3678 microF1 0.4468 AUC-PR 0.3219
+  early stop at epoch 25
+  TEST macroF1 0.3218 | microF1 0.4235 | AUC-PR 0.3143 | 0.5 min
+
+[7/21] nodes_30
+GraphSAGE | in_dim 140 | 20 classes | 371,604 params | nodes 30 | edges 148
+  ep   1 | loss 0.2723/0.1881 | val macroF1 0.3087 microF1 0.3747 AUC-PR 0.2593
+  ep   5 | loss 0.1740/0.1718 | val macroF1 0.3893 microF1 0.4479 AUC-PR 0.3324
+  ep  10 | loss 0.1539/0.1763 | val macroF1 0.4006 microF1 0.4852 AUC-PR 0.3427
+  ep  15 | loss 0.1386/0.1845 | val macroF1 0.3849 microF1 0.4590 AUC-PR 0.3310
+  ep  20 | loss 0.1233/0.1979 | val macroF1 0.3750 microF1 0.4433 AUC-PR 0.3230
+  ep  25 | loss 0.1094/0.2110 | val macroF1 0.3712 microF1 0.4514 AUC-PR 0.3230
+  early stop at epoch 25
+  TEST macroF1 0.3199 | microF1 0.4361 | AUC-PR 0.3145 | 0.5 min
+
+[8/21] encoder_GraphSAGE
+GraphSAGE | in_dim 140 | 20 classes | 371,604 params | nodes 30 | edges 148
+  ep   1 | loss 0.2723/0.1881 | val macroF1 0.3087 microF1 0.3749 AUC-PR 0.2598
+  ep   5 | loss 0.1740/0.1718 | val macroF1 0.3875 microF1 0.4572 AUC-PR 0.3321
+  ep  10 | loss 0.1539/0.1763 | val macroF1 0.3966 microF1 0.4733 AUC-PR 0.3416
+  ep  15 | loss 0.1388/0.1839 | val macroF1 0.3850 microF1 0.4501 AUC-PR 0.3318
+  ep  20 | loss 0.1236/0.1970 | val macroF1 0.3758 microF1 0.4603 AUC-PR 0.3242
+  ep  25 | loss 0.1098/0.2103 | val macroF1 0.3715 microF1 0.4521 AUC-PR 0.3252
+  early stop at epoch 25
+  TEST macroF1 0.3204 | microF1 0.4284 | AUC-PR 0.3133 | 0.5 min
+
+[9/21] encoder_GAT
+GAT | in_dim 140 | 20 classes | 206,228 params | nodes 30 | edges 148
+  ep   1 | loss 0.2764/0.1880 | val macroF1 0.3030 microF1 0.3739 AUC-PR 0.2528
+  ep   5 | loss 0.1683/0.1697 | val macroF1 0.3875 microF1 0.4598 AUC-PR 0.3415
+  ep  10 | loss 0.1463/0.1750 | val macroF1 0.3935 microF1 0.4757 AUC-PR 0.3434
+  ep  15 | loss 0.1278/0.1907 | val macroF1 0.3814 microF1 0.4530 AUC-PR 0.3294
+  ep  20 | loss 0.1114/0.1999 | val macroF1 0.3863 microF1 0.4753 AUC-PR 0.3326
+  early stop at epoch 23
+  TEST macroF1 0.3211 | microF1 0.4561 | AUC-PR 0.3236 | 0.5 min
+
+[10/21] encoder_GCN
+GCN | in_dim 140 | 20 classes | 204,692 params | nodes 30 | edges 148
+  ep   1 | loss 0.2746/0.1908 | val macroF1 0.2983 microF1 0.3744 AUC-PR 0.2451
+  ep   5 | loss 0.1749/0.1750 | val macroF1 0.3721 microF1 0.4360 AUC-PR 0.3220
+  ep  10 | loss 0.1531/0.1787 | val macroF1 0.3809 microF1 0.4880 AUC-PR 0.3279
+  ep  15 | loss 0.1348/0.1873 | val macroF1 0.3725 microF1 0.4472 AUC-PR 0.3157
+  ep  20 | loss 0.1180/0.2050 | val macroF1 0.3741 microF1 0.4616 AUC-PR 0.3137
+  ep  25 | loss 0.1035/0.2208 | val macroF1 0.3575 microF1 0.4315 AUC-PR 0.3036
+  early stop at epoch 27
+  TEST macroF1 0.3182 | microF1 0.4316 | AUC-PR 0.3111 | 0.5 min
+
+[11/21] encoder_GIN
+GIN | in_dim 140 | 20 classes | 402,068 params | nodes 30 | edges 148
+  ep   1 | loss 0.2807/0.1928 | val macroF1 0.2876 microF1 0.3820 AUC-PR 0.2400
+  ep   5 | loss 0.1740/0.1760 | val macroF1 0.3794 microF1 0.4474 AUC-PR 0.3228
+  ep  10 | loss 0.1499/0.1850 | val macroF1 0.3596 microF1 0.4317 AUC-PR 0.3100
+  ep  15 | loss 0.1282/0.2007 | val macroF1 0.3595 microF1 0.4428 AUC-PR 0.3057
+  ep  20 | loss 0.1041/0.2282 | val macroF1 0.3520 microF1 0.4466 AUC-PR 0.3014
+  early stop at epoch 23
+  TEST macroF1 0.3017 | microF1 0.3966 | AUC-PR 0.2954 | 0.4 min
+
+[12/21] layers_2
+GraphSAGE | in_dim 140 | 20 classes | 239,764 params | nodes 30 | edges 148
+  ep   1 | loss 0.2744/0.1920 | val macroF1 0.2893 microF1 0.3655 AUC-PR 0.2372
+  ep   5 | loss 0.1787/0.1748 | val macroF1 0.3833 microF1 0.4393 AUC-PR 0.3271
+  ep  10 | loss 0.1616/0.1734 | val macroF1 0.3946 microF1 0.4533 AUC-PR 0.3391
+  ep  15 | loss 0.1493/0.1718 | val macroF1 0.4038 microF1 0.4591 AUC-PR 0.3481
+  ep  20 | loss 0.1384/0.1765 | val macroF1 0.3975 microF1 0.4587 AUC-PR 0.3406
+  ep  25 | loss 0.1283/0.1832 | val macroF1 0.3963 microF1 0.4709 AUC-PR 0.3391
+  ep  30 | loss 0.1185/0.1876 | val macroF1 0.3964 microF1 0.4646 AUC-PR 0.3345
+  early stop at epoch 30
+  TEST macroF1 0.3283 | microF1 0.4247 | AUC-PR 0.3305 | 0.5 min
+
+[13/21] layers_3
+GraphSAGE | in_dim 140 | 20 classes | 371,604 params | nodes 30 | edges 148
+  ep   1 | loss 0.2723/0.1881 | val macroF1 0.3091 microF1 0.3791 AUC-PR 0.2600
+  ep   5 | loss 0.1741/0.1720 | val macroF1 0.3868 microF1 0.4497 AUC-PR 0.3319
+  ep  10 | loss 0.1540/0.1769 | val macroF1 0.3977 microF1 0.4786 AUC-PR 0.3389
+  ep  15 | loss 0.1388/0.1826 | val macroF1 0.3880 microF1 0.4718 AUC-PR 0.3347
+  ep  20 | loss 0.1236/0.1968 | val macroF1 0.3758 microF1 0.4497 AUC-PR 0.3227
+  ep  25 | loss 0.1102/0.2095 | val macroF1 0.3703 microF1 0.4471 AUC-PR 0.3233
+  early stop at epoch 26
+  TEST macroF1 0.3196 | microF1 0.4502 | AUC-PR 0.3190 | 0.5 min
+
+[14/21] layers_4
+GraphSAGE | in_dim 140 | 20 classes | 503,444 params | nodes 30 | edges 148
+  ep   1 | loss 0.2780/0.1888 | val macroF1 0.2974 microF1 0.3674 AUC-PR 0.2421
+  ep   5 | loss 0.1733/0.1757 | val macroF1 0.3791 microF1 0.4619 AUC-PR 0.3255
+  ep  10 | loss 0.1536/0.1775 | val macroF1 0.3820 microF1 0.4376 AUC-PR 0.3283
+  ep  15 | loss 0.1381/0.1864 | val macroF1 0.3851 microF1 0.4526 AUC-PR 0.3329
+  ep  20 | loss 0.1241/0.1967 | val macroF1 0.3840 microF1 0.4677 AUC-PR 0.3312
+  ep  25 | loss 0.1084/0.2148 | val macroF1 0.3703 microF1 0.4324 AUC-PR 0.3216
+  early stop at epoch 26
+  TEST macroF1 0.3194 | microF1 0.4196 | AUC-PR 0.3164 | 0.5 min
+
+[15/21] feat_melchroma
+GraphSAGE | in_dim 140 | 20 classes | 371,604 params | nodes 30 | edges 148
+  ep   1 | loss 0.2723/0.1881 | val macroF1 0.3092 microF1 0.3723 AUC-PR 0.2595
+  ep   5 | loss 0.1740/0.1719 | val macroF1 0.3879 microF1 0.4471 AUC-PR 0.3319
+  ep  10 | loss 0.1539/0.1764 | val macroF1 0.3981 microF1 0.4863 AUC-PR 0.3425
+  ep  15 | loss 0.1388/0.1837 | val macroF1 0.3863 microF1 0.4554 AUC-PR 0.3316
+  ep  20 | loss 0.1234/0.1971 | val macroF1 0.3799 microF1 0.4526 AUC-PR 0.3235
+  ep  25 | loss 0.1098/0.2106 | val macroF1 0.3706 microF1 0.4657 AUC-PR 0.3219
+  early stop at epoch 25
+  TEST macroF1 0.3194 | microF1 0.4361 | AUC-PR 0.3140 | 0.5 min
+
+[16/21] readout_meanmax
+GraphSAGE | in_dim 140 | 20 classes | 404,372 params | nodes 30 | edges 148
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+  ep   1 | loss 0.2451/0.1965 | val macroF1 0.2996 microF1 0.3563 AUC-PR 0.2439
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+  ep   5 | loss 0.1761/0.1725 | val macroF1 0.3834 microF1 0.4296 AUC-PR 0.3269
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+  ep  10 | loss 0.1591/0.1708 | val macroF1 0.4060 microF1 0.4692 AUC-PR 0.3491
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+  ep  15 | loss 0.1442/0.1792 | val macroF1 0.3951 microF1 0.4828 AUC-PR 0.3426
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+  ep  20 | loss 0.1314/0.1834 | val macroF1 0.3882 microF1 0.4691 AUC-PR 0.3352
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+/home/mt/miniconda3/envs/gnnmusic/lib/python3.11/site-packages/torch_geometric/utils/_scatter.py:91: UserWarning: The usage of `scatter(reduce='max')` can be accelerated via the 'torch-scatter' package, but it was not found
+  warnings.warn(
+  ep  25 | loss 0.1177/0.1981 | val macroF1 0.3820 microF1 0.4692 AUC-PR 0.3360
+  early stop at epoch 25
+  TEST macroF1 0.3285 | microF1 0.4284 | AUC-PR 0.3223 | 0.5 min
+
+[17/21] graph_temporal
+GraphSAGE | in_dim 140 | 20 classes | 371,604 params | nodes 30 | edges 58
+  ep   1 | loss 0.2734/0.1886 | val macroF1 0.3017 microF1 0.3794 AUC-PR 0.2554
+  ep   5 | loss 0.1750/0.1707 | val macroF1 0.3888 microF1 0.4423 AUC-PR 0.3376
+  ep  10 | loss 0.1554/0.1748 | val macroF1 0.4020 microF1 0.4597 AUC-PR 0.3466
+  ep  15 | loss 0.1417/0.1817 | val macroF1 0.3913 microF1 0.4766 AUC-PR 0.3401
+  ep  20 | loss 0.1282/0.1940 | val macroF1 0.3809 microF1 0.4649 AUC-PR 0.3283
+  ep  25 | loss 0.1148/0.2036 | val macroF1 0.3824 microF1 0.4657 AUC-PR 0.3304
+  early stop at epoch 25
+  TEST macroF1 0.3107 | microF1 0.4110 | AUC-PR 0.3131 | 0.5 min
+
+[18/21] graph_threshold
+GraphSAGE | in_dim 140 | 20 classes | 371,604 params | nodes 30 | edges 294
+  ep   1 | loss 0.2723/0.1896 | val macroF1 0.3036 microF1 0.3822 AUC-PR 0.2549
+  ep   5 | loss 0.1749/0.1738 | val macroF1 0.3768 microF1 0.4432 AUC-PR 0.3290
+  ep  10 | loss 0.1547/0.1789 | val macroF1 0.3874 microF1 0.4539 AUC-PR 0.3357
+  ep  15 | loss 0.1391/0.1863 | val macroF1 0.3797 microF1 0.4522 AUC-PR 0.3286
+  ep  20 | loss 0.1239/0.2015 | val macroF1 0.3704 microF1 0.4526 AUC-PR 0.3194
+  ep  25 | loss 0.1091/0.2167 | val macroF1 0.3691 microF1 0.4444 AUC-PR 0.3190
+  early stop at epoch 26
+  TEST macroF1 0.3173 | microF1 0.4298 | AUC-PR 0.3145 | 0.5 min
+caching seg_30_melchroma_1: 24980 tracks
+saved data/processed/cache/seg_30_melchroma_1.pt
+
+[19/21] feat_melchroma_std
+GraphSAGE | in_dim 280 | 20 classes | 443,284 params | nodes 30 | edges 148
+  ep   1 | loss 0.2733/0.1751 | val macroF1 0.3587 microF1 0.4063 AUC-PR 0.3084
+  ep   5 | loss 0.1627/0.1640 | val macroF1 0.4134 microF1 0.4829 AUC-PR 0.3622
+  ep  10 | loss 0.1450/0.1724 | val macroF1 0.4088 microF1 0.4753 AUC-PR 0.3564
+  ep  15 | loss 0.1293/0.1761 | val macroF1 0.4130 microF1 0.4865 AUC-PR 0.3660
+  ep  20 | loss 0.1159/0.1920 | val macroF1 0.3931 microF1 0.4677 AUC-PR 0.3450
+  early stop at epoch 23
+  TEST macroF1 0.3390 | microF1 0.4330 | AUC-PR 0.3416 | 0.4 min
+caching seg_6_melchroma_0: 24980 tracks
+saved data/processed/cache/seg_6_melchroma_0.pt
+
+[20/21] nodes_6
+GraphSAGE | in_dim 140 | 20 classes | 371,604 params | nodes 6 | edges 28
+  ep   1 | loss 0.2732/0.1900 | val macroF1 0.2982 microF1 0.3565 AUC-PR 0.2488
+  ep   5 | loss 0.1788/0.1768 | val macroF1 0.3670 microF1 0.4341 AUC-PR 0.3149
+  ep  10 | loss 0.1590/0.1786 | val macroF1 0.3845 microF1 0.4444 AUC-PR 0.3308
+  ep  15 | loss 0.1450/0.1870 | val macroF1 0.3730 microF1 0.4408 AUC-PR 0.3214
+  ep  20 | loss 0.1311/0.1967 | val macroF1 0.3630 microF1 0.4458 AUC-PR 0.3101
+  ep  25 | loss 0.1175/0.2038 | val macroF1 0.3639 microF1 0.4444 AUC-PR 0.3143
+  early stop at epoch 25
+  TEST macroF1 0.3101 | microF1 0.4031 | AUC-PR 0.3103 | 0.4 min
+caching seg_60_melchroma_0: 24980 tracks
+saved data/processed/cache/seg_60_melchroma_0.pt
+
+[21/21] nodes_60
+GraphSAGE | in_dim 140 | 20 classes | 371,604 params | nodes 60 | edges 298
+  ep   1 | loss 0.2722/0.1874 | val macroF1 0.3174 microF1 0.3890 AUC-PR 0.2699
+  ep   5 | loss 0.1723/0.1706 | val macroF1 0.3946 microF1 0.4631 AUC-PR 0.3426
+  ep  10 | loss 0.1528/0.1747 | val macroF1 0.4111 microF1 0.4701 AUC-PR 0.3499
+  ep  15 | loss 0.1389/0.1794 | val macroF1 0.3985 microF1 0.4702 AUC-PR 0.3458
+  ep  20 | loss 0.1233/0.1946 | val macroF1 0.3943 microF1 0.4813 AUC-PR 0.3395
+  ep  25 | loss 0.1092/0.2084 | val macroF1 0.3828 microF1 0.4653 AUC-PR 0.3339
+  early stop at epoch 26
+  TEST macroF1 0.3318 | microF1 0.4660 | AUC-PR 0.3267 | 0.5 min
+
+### graph
+
+| variant | nodes | edges | params | Macro-F1 | Micro-F1 | AUC-PR |
+|---|---|---|---|---|---|---|
+| full | 30 | 870 | 371,604 | 0.3307 | 0.4391 | 0.3216 |
+| threshold | 30 | 294 | 371,604 | 0.3173 | 0.4298 | 0.3145 |
+| knn | 30 | 148 | 371,604 | 0.3218 | 0.4235 | 0.3143 |
+| temporal | 30 | 58 | 371,604 | 0.3107 | 0.4110 | 0.3131 |
+| chord | 24 | 258 | 318,868 | 0.2911 | 0.3970 | 0.2870 |
+
+### nodes
+
+| variant | nodes | edges | params | Macro-F1 | Micro-F1 | AUC-PR |
+|---|---|---|---|---|---|---|
+| 60 | 60 | 298 | 371,604 | 0.3318 | 0.4660 | 0.3267 |
+| 30 | 30 | 148 | 371,604 | 0.3199 | 0.4361 | 0.3145 |
+| 15 | 15 | 73 | 371,604 | 0.3136 | 0.4294 | 0.3130 |
+| 6 | 6 | 28 | 371,604 | 0.3101 | 0.4031 | 0.3103 |
+
+### feat
+
+| variant | nodes | edges | params | Macro-F1 | Micro-F1 | AUC-PR |
+|---|---|---|---|---|---|---|
+| melchroma_std | 30 | 148 | 443,284 | 0.3390 | 0.4330 | 0.3416 |
+| mel | 30 | 148 | 365,460 | 0.3240 | 0.4088 | 0.3196 |
+| melchroma | 30 | 148 | 371,604 | 0.3194 | 0.4361 | 0.3140 |
+| chroma | 30 | 148 | 306,068 | 0.2707 | 0.3699 | 0.2594 |
+
+### encoder
+
+| variant | nodes | edges | params | Macro-F1 | Micro-F1 | AUC-PR |
+|---|---|---|---|---|---|---|
+| GAT | 30 | 148 | 206,228 | 0.3211 | 0.4561 | 0.3236 |
+| GraphSAGE | 30 | 148 | 371,604 | 0.3204 | 0.4284 | 0.3133 |
+| GCN | 30 | 148 | 204,692 | 0.3182 | 0.4316 | 0.3111 |
+| GIN | 30 | 148 | 402,068 | 0.3017 | 0.3966 | 0.2954 |
+
+### layers
+
+| variant | nodes | edges | params | Macro-F1 | Micro-F1 | AUC-PR |
+|---|---|---|---|---|---|---|
+| 2 | 30 | 148 | 239,764 | 0.3283 | 0.4247 | 0.3305 |
+| 3 | 30 | 148 | 371,604 | 0.3196 | 0.4502 | 0.3190 |
+| 4 | 30 | 148 | 503,444 | 0.3194 | 0.4196 | 0.3164 |
+
+### readout
+
+| variant | nodes | edges | params | Macro-F1 | Micro-F1 | AUC-PR |
+|---|---|---|---|---|---|---|
+| meanmax | 30 | 148 | 404,372 | 0.3285 | 0.4284 | 0.3223 |

@@ -1,0 +1,146 @@
+[
+  {
+    "track_id": "000181",
+    "genre": "Rock",
+    "segment_edges": 148,
+    "chord_nodes": 24
+  },
+  {
+    "track_id": "000182",
+    "genre": "Rock",
+    "segment_edges": 148,
+    "chord_nodes": 22
+  },
+  {
+    "track_id": "000704",
+    "genre": "International",
+    "segment_edges": 148,
+    "chord_nodes": 24
+  },
+  {
+    "track_id": "000705",
+    "genre": "International",
+    "segment_edges": 148,
+    "chord_nodes": 24
+  },
+  {
+    "track_id": "000734",
+    "genre": "Soul-RnB",
+    "segment_edges": 148,
+    "chord_nodes": 24
+  },
+  {
+    "track_id": "000735",
+    "genre": "Soul-RnB",
+    "segment_edges": 148,
+    "chord_nodes": 24
+  },
+  {
+    "track_id": "000854",
+    "genre": "Experimental",
+    "segment_edges": 148,
+    "chord_nodes": 23
+  },
+  {
+    "track_id": "000890",
+    "genre": "Folk",
+    "segment_edges": 148,
+    "chord_nodes": 13
+  },
+  {
+    "track_id": "000891",
+    "genre": "Folk",
+    "segment_edges": 148,
+    "chord_nodes": 18
+  },
+  {
+    "track_id": "001042",
+    "genre": "Blues",
+    "segment_edges": 148,
+    "chord_nodes": 24
+  },
+  {
+    "track_id": "001043",
+    "genre": "Blues",
+    "segment_edges": 148,
+    "chord_nodes": 24
+  },
+  {
+    "track_id": "001066",
+    "genre": "Experimental",
+    "segment_edges": 148,
+    "chord_nodes": 13
+  },
+  {
+    "track_id": "004707",
+    "genre": "Electronic",
+    "segment_edges": 148,
+    "chord_nodes": 10
+  },
+  {
+    "track_id": "004708",
+    "genre": "Electronic",
+    "segment_edges": 148,
+    "chord_nodes": 9
+  },
+  {
+    "track_id": "005030",
+    "genre": "Old-Time / Historic",
+    "segment_edges": 148,
+    "chord_nodes": 24
+  },
+  {
+    "track_id": "005038",
+    "genre": "Old-Time / Historic",
+    "segment_edges": 148,
+    "chord_nodes": 24
+  },
+  {
+    "track_id": "010230",
+    "genre": "Instrumental",
+    "segment_edges": 148,
+    "chord_nodes": 24
+  },
+  {
+    "track_id": "010250",
+    "genre": "Instrumental",
+    "segment_edges": 148,
+    "chord_nodes": 24
+  },
+  {
+    "track_id": "011200",
+    "genre": "Pop",
+    "segment_edges": 148,
+    "chord_nodes": 17
+  },
+  {
+    "track_id": "011204",
+    "genre": "Hip-Hop",
+    "segment_edges": 148,
+    "chord_nodes": 24
+  },
+  {
+    "track_id": "012179",
+    "genre": "Pop",
+    "segment_edges": 148,
+    "chord_nodes": 20
+  },
+  {
+    "track_id": "012374",
+    "genre": "Jazz",
+    "segment_edges": 148,
+    "chord_nodes": 23
+  },
+  {
+    "track_id": "013760",
+    "genre": "Jazz",
+    "segment_edges": 148,
+    "chord_nodes": 23
+  },
+  {
+    "track_id": "014359",
+    "genre": "Hip-Hop",
+    "segment_edges": 148,
+    "chord_nodes": 24
+  }
+]
