@@ -1,0 +1,91 @@
+{
+  "checkpoint": "results/final/best_gat_knn.pt",
+  "config": {
+    "labels": "multi",
+    "top_k": 20,
+    "graph": "segment",
+    "n_nodes": 60,
+    "feat": "mel+chroma",
+    "with_std": true,
+    "edge_mode": "knn",
+    "k": 3,
+    "tau": 0.7,
+    "chord_smooth": 21,
+    "kind": "GAT",
+    "readout": "mean",
+    "hidden": 256,
+    "out_dim": 256,
+    "layers": 2,
+    "dropout": 0.3,
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "batch_size": 256,
+    "epochs": 80,
+    "patience": 15,
+    "seed": 42,
+    "results_dir": "results/final",
+    "run_name": "best_gat_knn"
+  },
+  "vocab": [
+    "Rock",
+    "Electronic",
+    "Punk",
+    "Experimental",
+    "Hip-Hop",
+    "Folk",
+    "Garage",
+    "Indie-Rock",
+    "Instrumental",
+    "Pop",
+    "International",
+    "Chip Music",
+    "Ambient Electronic",
+    "IDM",
+    "Downtempo",
+    "Soundtrack",
+    "Techno",
+    "Trip-Hop",
+    "Chiptune",
+    "Psych-Rock"
+  ],
+  "comparison": {
+    "Random (label-prior)": {
+      "macro_f1": 0.09772307240108508,
+      "micro_f1": 0.2598546575644131,
+      "auc_pr": 0.08212021533480188
+    },
+    "CNN mel-spectrogram (B2, Person 1 arch.)": {
+      "macro_f1": 0.40613219462597855,
+      "micro_f1": 0.5032205295982006,
+      "auc_pr": 0.4260207708154756
+    },
+    "GNN GAT (segment graph)": {
+      "macro_f1": 0.3544162301944855,
+      "micro_f1": 0.4409617443784678,
+      "auc_pr": 0.36733245256654634
+    }
+  },
+  "gnn_per_class_ap": {
+    "Rock": 0.8838492196516967,
+    "Electronic": 0.8157672857511448,
+    "Punk": 0.653588751630727,
+    "Experimental": 0.3282944051593054,
+    "Hip-Hop": 0.8584263722653188,
+    "Folk": 0.21435535108589704,
+    "Garage": 0.4324639713659086,
+    "Indie-Rock": 0.1528989101586729,
+    "Instrumental": 0.28469684819096447,
+    "Pop": 0.1590911797828183,
+    "International": 0.5459004111969816,
+    "Chip Music": 0.7110282898645611,
+    "Ambient Electronic": 0.179691358225057,
+    "IDM": 0.2008731727856582,
+    "Downtempo": 0.10955321597671992,
+    "Soundtrack": 0.06085506789513144,
+    "Techno": 0.2436637809977629,
+    "Trip-Hop": 0.025911705741181203,
+    "Chiptune": 0.4221440062253134,
+    "Psych-Rock": 0.06359574738010564
+  },
+  "markdown_table": "| Model | Macro-F1 | Micro-F1 | AUC-PR |\n|---|---|---|---|\n| Random (label-prior) | 0.0977 | 0.2599 | 0.0821 |\n| CNN mel-spectrogram (B2, Person 1 arch.) | 0.4061 | 0.5032 | 0.4260 |\n| GNN GAT (segment graph) | 0.3544 | 0.4410 | 0.3673 |"
+}

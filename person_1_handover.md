@@ -50,7 +50,7 @@ Below is the sequential workflow implemented for the audio feature extraction st
 
 ## 2. INTEGRATION HANDOFF FOR TEAM MEMBERS
 
-### 👥 For Person 2: Graph Construction & GNN Specialist
+### 👥 For Person 3: Graph Construction & GNN Specialist
 All preprocessed segment features have been saved to `data/processed/audio_features/{track_id}.npz` where `track_id` is a 6-digit padded string (e.g., `000002.npz`).
 
 #### Data Structure inside `.npz`
@@ -66,7 +66,7 @@ All preprocessed segment features have been saved to `data/processed/audio_featu
     *   *Temporal Adjacency*: Connect node $i$ to node $i+1$.
     *   *Segment Similarity*: Calculate cosine similarity between node features (e.g., chroma) and add edges if similarity exceeds threshold $\tau$.
 
-#### Python Loading Template for Person 2:
+#### Python Loading Template for Person 3:
 ```python
 import numpy as np
 
@@ -84,7 +84,7 @@ node_features_chroma = np.mean(chroma_features, axis=-1)  # shape: (6, 12)
 
 ---
 
-### 👥 For Person 3: Text & BERT Specialist
+### 👥 For Person 2: Text & BERT Specialist
 You must align text descriptions (lyrics/captions/tags) with the preprocessed audio files using the unique `track_id`.
 
 #### Alignment Guidelines:
@@ -92,7 +92,7 @@ You must align text descriptions (lyrics/captions/tags) with the preprocessed au
 2.  Import the splits (`data/splits/training.json`, `validation.json`, `test.json`) to determine which subset a track belongs to. This ensures that your BERT train/test inputs exactly match the GNN and CNN baselines.
 3.  For BERT tokenization, pad/truncate your token sequence to **128–256 tokens** as specified.
 
-#### Python Split Loader for Person 3:
+#### Python Split Loader for Person 2:
 ```python
 import json
 

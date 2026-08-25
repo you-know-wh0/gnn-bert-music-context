@@ -1,0 +1,14 @@
+CNN baseline (Person 1 architecture) | multi | 20 classes | 18294 train tracks
+  ep  1 | loss 0.1949 | val macroF1 0.4261 AUC-PR 0.3839 | 0.3 min
+  ep  2 | loss 0.1684 | val macroF1 0.4404 AUC-PR 0.4024 | 0.3 min
+  ep  3 | loss 0.1623 | val macroF1 0.4674 AUC-PR 0.4279 | 0.3 min
+  ep  4 | loss 0.1576 | val macroF1 0.4651 AUC-PR 0.4274 | 0.3 min
+  ep  5 | loss 0.1541 | val macroF1 0.4702 AUC-PR 0.4359 | 0.3 min
+  ep  6 | loss 0.1507 | val macroF1 0.4747 AUC-PR 0.4425 | 0.3 min
+  ep  7 | loss 0.1476 | val macroF1 0.4756 AUC-PR 0.4386 | 0.3 min
+  ep  8 | loss 0.1443 | val macroF1 0.4820 AUC-PR 0.4440 | 0.3 min
+  ep  9 | loss 0.1419 | val macroF1 0.4815 AUC-PR 0.4456 | 0.3 min
+  ep 10 | loss 0.1396 | val macroF1 0.4866 AUC-PR 0.4505 | 0.3 min
+  ep 11 | loss 0.1378 | val macroF1 0.4874 AUC-PR 0.4548 | 0.3 min
+  ep 12 | loss 0.1369 | val macroF1 0.4870 AUC-PR 0.4508 | 0.3 min
+  TEST macroF1 0.4061 | microF1 0.5032 | AUC-PR 0.4260

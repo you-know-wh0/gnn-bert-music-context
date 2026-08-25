@@ -1,0 +1,8 @@
+
+| Model | Macro-F1 | Micro-F1 | AUC-PR |
+|---|---|---|---|
+| Random (label-prior) | 0.0977 | 0.2599 | 0.0821 |
+| CNN mel-spectrogram (B2, Person 1 arch.) | 0.4061 | 0.5032 | 0.4260 |
+| GNN GAT (segment graph) | 0.3544 | 0.4410 | 0.3673 |
+
+saved results/metrics.json and plots in plots/
