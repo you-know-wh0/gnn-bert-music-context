@@ -6,8 +6,16 @@ from pathlib import Path
 
 import numpy as np
 
-TRACKS_CSV = "data/raw/metadata/fma_metadata/tracks.csv"
-GENRES_CSV = "data/raw/metadata/fma_metadata/genres.csv"
+import os
+
+TRACKS_CSV = "data/raw/fma_medium/metadata/fma_metadata/tracks.csv"
+if not os.path.exists(TRACKS_CSV):
+    TRACKS_CSV = "data/raw/metadata/fma_metadata/tracks.csv"
+
+GENRES_CSV = "data/raw/fma_medium/metadata/fma_metadata/genres.csv"
+if not os.path.exists(GENRES_CSV):
+    GENRES_CSV = "data/raw/metadata/fma_metadata/genres.csv"
+
 SPLITS_DIR = "data/splits"
 SPLIT_FILES = {"training": "training.json", "validation": "validation.json", "test": "test.json"}
 

@@ -1,0 +1,25 @@
+{
+  "query_index": 4,
+  "query_text": "A International music piece titled 'Tio Cocodrilo' by F\u00f3sforo from the album 'Macondo'.",
+  "correct_track_id": "000705",
+  "retrieved_top_3": [
+    {
+      "rank": 1,
+      "track_id": "014602",
+      "similarity_score": 0.5348984003067017,
+      "is_exact_match": false
+    },
+    {
+      "rank": 2,
+      "track_id": "011019",
+      "similarity_score": 0.4926050007343292,
+      "is_exact_match": false
+    },
+    {
+      "rank": 3,
+      "track_id": "014604",
+      "similarity_score": 0.4731384515762329,
+      "is_exact_match": false
+    }
+  ]
+}

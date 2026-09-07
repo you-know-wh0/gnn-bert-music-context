@@ -10,3 +10,5 @@ networkx>=3.2
 tqdm>=4.66
 pyyaml>=6.0
 notebook>=7.0
+transformers>=4.40
+reportlab>=4.0

@@ -1,0 +1,128 @@
+{
+  "config": {
+    "mode": "concat",
+    "bert_checkpoint": null,
+    "freeze_bert": false,
+    "gnn_checkpoint": "results/final/best_gat_knn.pt",
+    "freeze_gnn": true,
+    "gnn_hidden": 256,
+    "gnn_out": 256,
+    "gnn_layers": 2,
+    "gnn_dropout": 0.3,
+    "gnn_kind": "GAT",
+    "gnn_readout": "mean",
+    "head_hidden": 256,
+    "head_dropout": 0.3,
+    "lr": 2e-05,
+    "weight_decay": 0.0001,
+    "batch_size": 32,
+    "epochs": 6,
+    "patience": 4,
+    "seed": 42,
+    "results_dir": "results/fusion",
+    "run_name": "fusion_concat"
+  },
+  "vocab": [
+    "Rock",
+    "Electronic",
+    "Punk",
+    "Experimental",
+    "Hip-Hop",
+    "Folk",
+    "Garage",
+    "Indie-Rock",
+    "Instrumental",
+    "Pop",
+    "International",
+    "Chip Music",
+    "Ambient Electronic",
+    "IDM",
+    "Downtempo",
+    "Soundtrack",
+    "Techno",
+    "Trip-Hop",
+    "Chiptune",
+    "Psych-Rock"
+  ],
+  "test": {
+    "macro_f1": 0.17040022896024018,
+    "micro_f1": 0.15892218861699203,
+    "auc_pr": 0.32025257963419757
+  },
+  "per_class_ap": [
+    0.9999999999999998,
+    0.42775628739307975,
+    0.4313073605387622,
+    0.3978643286563544,
+    0.019022015580862982,
+    0.9246437560089623,
+    0.06003228822481666,
+    0.5434782608695652,
+    0.008824590270293135,
+    0.060095735291520076,
+    0.5098714891599548,
+    0.048671073304683635,
+    null,
+    null,
+    null,
+    0.007560058446406616,
+    null,
+    null,
+    null,
+    0.044408871133503496
+  ],
+  "best_val_auc_pr": 0.2479977538966754,
+  "epochs_run": 6,
+  "train_minutes": 18.223910466829935,
+  "params": 109749780,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.536090620358785,
+      "val_loss": 0.42973212798436483,
+      "val_macro_f1": 0.13653192471645242,
+      "val_micro_f1": 0.17743445692883894,
+      "val_auc_pr": 0.10503831505765138
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.3931088626384735,
+      "val_loss": 0.3522921288013458,
+      "val_macro_f1": 0.14258505861680087,
+      "val_micro_f1": 0.18104526131532883,
+      "val_auc_pr": 0.12031163892479835
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.33581584056218466,
+      "val_loss": 0.31953081051508586,
+      "val_macro_f1": 0.1545724652118039,
+      "val_micro_f1": 0.18379446640316205,
+      "val_auc_pr": 0.14891784226773425
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.3095266568660736,
+      "val_loss": 0.3012386127312978,
+      "val_macro_f1": 0.18065528139069084,
+      "val_micro_f1": 0.1974735756638309,
+      "val_auc_pr": 0.191159010357941
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.2932100045681,
+      "val_loss": 0.29214376091957095,
+      "val_macro_f1": 0.21866820618927701,
+      "val_micro_f1": 0.23155294844087682,
+      "val_auc_pr": 0.23211024163212052
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.2873754664262136,
+      "val_loss": 0.2898147948582967,
+      "val_macro_f1": 0.21710407821632566,
+      "val_micro_f1": 0.2185111803000283,
+      "val_auc_pr": 0.2479977538966754
+    }
+  ]
+}

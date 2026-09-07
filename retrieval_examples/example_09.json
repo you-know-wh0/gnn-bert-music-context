@@ -1,0 +1,25 @@
+{
+  "query_index": 8,
+  "query_text": "A International music piece titled 'Cumbia De Obama' by F\u00f3sforo from the album 'Macondo'.",
+  "correct_track_id": "000709",
+  "retrieved_top_3": [
+    {
+      "rank": 1,
+      "track_id": "011019",
+      "similarity_score": 0.5167026519775391,
+      "is_exact_match": false
+    },
+    {
+      "rank": 2,
+      "track_id": "010389",
+      "similarity_score": 0.5091577768325806,
+      "is_exact_match": false
+    },
+    {
+      "rank": 3,
+      "track_id": "014602",
+      "similarity_score": 0.45126867294311523,
+      "is_exact_match": false
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "query_index": 5,
+  "query_text": "A International music piece titled 'Esto Es Califas' by F\u00f3sforo from the album 'Macondo'.",
+  "correct_track_id": "000706",
+  "retrieved_top_3": [
+    {
+      "rank": 1,
+      "track_id": "011019",
+      "similarity_score": 0.5206831693649292,
+      "is_exact_match": false
+    },
+    {
+      "rank": 2,
+      "track_id": "010389",
+      "similarity_score": 0.47726842761039734,
+      "is_exact_match": false
+    },
+    {
+      "rank": 3,
+      "track_id": "014602",
+      "similarity_score": 0.47546660900115967,
+      "is_exact_match": false
+    }
+  ]
+}

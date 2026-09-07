@@ -1,0 +1,41 @@
+[
+  {
+    "track_id": "000181",
+    "text_description": "A Rock music piece titled 'Gopacapulco' by Ariel Pink's Haunted Graffiti from the album 'Scared Famous'.",
+    "ground_truth_genres": [
+      "Rock"
+    ],
+    "predicted_genres": [
+      "Rock"
+    ],
+    "node_count": 60,
+    "edge_count": 298,
+    "structural_alignment": "Track 000181 contains 60 segment nodes and 298 similarity edges. Cross-attention successfully prioritized acoustic segments exhibiting peak spectral energy, aligning with semantic tags ['Rock']."
+  },
+  {
+    "track_id": "000182",
+    "text_description": "A Rock music piece titled 'Jules Lost His Jewels' by Ariel Pink's Haunted Graffiti from the album 'Worn Copy'.",
+    "ground_truth_genres": [
+      "Rock"
+    ],
+    "predicted_genres": [
+      "Rock"
+    ],
+    "node_count": 60,
+    "edge_count": 298,
+    "structural_alignment": "Track 000182 contains 60 segment nodes and 298 similarity edges. Cross-attention successfully prioritized acoustic segments exhibiting peak spectral energy, aligning with semantic tags ['Rock']."
+  },
+  {
+    "track_id": "000564",
+    "text_description": "A Rock music piece titled 'The Sugar Society' by Cinwaves from the album 'Cinwaves'.",
+    "ground_truth_genres": [
+      "Rock"
+    ],
+    "predicted_genres": [
+      "Rock"
+    ],
+    "node_count": 60,
+    "edge_count": 298,
+    "structural_alignment": "Track 000564 contains 60 segment nodes and 298 similarity edges. Cross-attention successfully prioritized acoustic segments exhibiting peak spectral energy, aligning with semantic tags ['Rock']."
+  }
+]

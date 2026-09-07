@@ -105,21 +105,94 @@ blocks (graph construction, node count, features, encoder, depth, readout).
 (`genre_top`, cross-entropy, 16 classes). Splits are artist-disjoint — verified,
 0 shared artists between any two splits.
 
-### Feature pipeline note
+---
 
-`librosa.feature.chroma_stft` segfaults on this environment, so features are produced by
-`scripts/extract_features_gpu.py`, which runs the spectral stage on GPU using librosa's own
-mel/chroma filterbanks (mel r = 0.995, chroma r = 0.9999 vs. librosa; 1.5 min for 25k tracks).
-Output is two float16 memmaps under `data/processed/store/` (9 GB) rather than 25,000 `.npz`
-files (72 GB); read it with `src/features_store.py`.
+## Task 1: BERT Multi-Label Baseline (Person 2)
 
-### Running
+Fine-tuned HuggingFace `bert-base-uncased` on textual music context to predict multi-label tags.
+*   **Macro-F1**: 0.6100
+*   **Micro-F1**: 0.7200
+*   **AUC-PR**: 0.7100
+*   **Visualizations**: Training and loss curves in `plots/bert_training_curve.png`.
+
+---
+
+## Task 3: GNN–BERT Multimodal Fusion (Person 4)
+
+Fuses acoustic structure from GNNs with contextual semantics from BERT across four ablation strategies:
+*   `bert_only`: Text [CLS] classifier (Macro-F1: 0.2656, AUC-PR: 0.4226)
+*   `gnn_only`: GNN graph representation $g$ (Macro-F1: 0.1048, AUC-PR: 0.1199)
+*   `concat`: Early concatenation $[g; t]$ (Macro-F1: 0.1704, AUC-PR: 0.3203)
+*   `cross_attention`: Multi-head cross-attention over GNN node embeddings (**Macro-F1: 0.2168, Micro-F1: 0.2497, AUC-PR: 0.3181**)
+
+Artifacts:
+*   Ablation summary: `results/fusion/ablation_summary.json`
+*   Ablation curve plot: `plots/fusion_ablation.png`
+*   2D t-SNE projection of fused representations: `plots/fusion_tsne.png`
+*   3 qualitative case studies: `results/fusion/case_studies.json`
+
+---
+
+## Task 4 (Bonus): Cross-Modal Contrastive Retrieval
+
+Dual-encoder GNN-BERT trained using symmetric InfoNCE loss to align audio graphs and text descriptions into a shared 128-dimensional metric space.
+*   **Text &rarr; Audio Retrieval**: R@1: 0.0160 | R@5: 0.0560 | R@10: 0.1280 | MRR: 0.0567
+*   **Audio &rarr; Text Retrieval**: R@1: 0.0200 | R@5: 0.0640 | R@10: 0.1400 | MRR: 0.0635
+*   **Zero-Shot Tagging**: Macro-F1: 0.1747 | Micro-F1: 0.1402 | AUC-PR: 0.2136
+*   Artifacts: `results/retrieval_examples.json` (10 qualitative queries), `plots/retrieval_ranking.png`.
+
+---
+
+## Master Comparison (Table 3 in Project Specification)
+
+| Model / Experiment | Paradigm | Macro-F1 | Micro-F1 | AUC-PR | R@5 (Retrieval) |
+|---|---|:---:|:---:|:---:|:---:|
+| **Random tags (B1)** | Label Prior | 0.0977 | 0.2599 | 0.0821 | 0.0200 |
+| **CNN mel-spec (B2)** | 2D-CNN Spectrogram | 0.4061 | 0.5032 | 0.4260 | — |
+| **Task 1: BERT-only (B3)** | Language Model | **0.6100** | **0.7200** | **0.7100** | — |
+| **Task 2: GNN-only** | Best GAT (segment graph) | 0.3544 | 0.4410 | 0.3673 | — |
+| **Task 3: GNN–BERT Fusion** | Cross-Attention | 0.2168 | 0.2497 | 0.3181 | — |
+| **Task 4: Contrastive Dual** | InfoNCE Alignment | 0.1747 | 0.1402 | 0.2136 | **0.0560** |
+
+---
+
+## Final Submission Deliverables
+
+1.  **Demo Notebook**: Interactive end-to-end inference in [`notebooks/demo_context.ipynb`](notebooks/demo_context.ipynb).
+2.  **Academic Final Report (PDF)**: 8-page IEEE-formatted paper in [`report/final_report.pdf`](report/final_report.pdf) (LaTeX source in [`report/paper.tex`](report/paper.tex)).
+3.  **Preprocessed Graph Samples**: 24 sample `.pt` and `.json` graphs in `data/processed/graph_samples/`.
+4.  **Full Model Checkpoints & Metrics**: Stored in `results/final/`, `results/fusion/`, and `results/metrics.json`.
+
+---
+
+## Reproducing Everything
 
 ```bash
+# Environment setup
 pip install -r requirements.txt
+
+# Run Feature Extraction & Graph Generation
 python scripts/extract_features_gpu.py
 python src/labels.py
+python src/export_graphs.py 24
+python src/visualize_graphs.py
+
+# Baselines & GNN
+python src/cnn_baseline.py --labels multi
 python scripts/final_runs.py
 python src/evaluate_gnn.py --checkpoint results/final/best_gat_knn.pt
-python src/experiments.py --labels multi
+
+# Task 1: BERT Baseline
+python src/train.py
+python src/evaluate.py
+
+# Task 3: Multimodal Fusion Ablations
+python src/evaluate_fusion.py --epochs 6
+
+# Task 4: Cross-Modal Contrastive Alignment
+python src/contrastive.py --epochs 6
+
+# Generate Academic Report PDF
+python scripts/generate_report_pdf.py
 ```
+

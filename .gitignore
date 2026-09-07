@@ -9,3 +9,5 @@ checkpoints/
 data/processed/*
 !data/processed/graph_samples/
 env_setup.log
+results/fusion/*.pt
+results/contrastive_model.pt

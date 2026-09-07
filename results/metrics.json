@@ -49,20 +49,41 @@
     "Psych-Rock"
   ],
   "comparison": {
-    "Random (label-prior)": {
-      "macro_f1": 0.09772307240108508,
-      "micro_f1": 0.2598546575644131,
-      "auc_pr": 0.08212021533480188
+    "Random tags (B1)": {
+      "macro_f1": 0.0977,
+      "micro_f1": 0.2599,
+      "auc_pr": 0.0821,
+      "retrieval_r5": 0.0200
     },
-    "CNN mel-spectrogram (B2, Person 1 arch.)": {
-      "macro_f1": 0.40613219462597855,
-      "micro_f1": 0.5032205295982006,
-      "auc_pr": 0.4260207708154756
+    "CNN mel-spectrogram (B2)": {
+      "macro_f1": 0.4061,
+      "micro_f1": 0.5032,
+      "auc_pr": 0.4260,
+      "retrieval_r5": null
     },
-    "GNN GAT (segment graph)": {
-      "macro_f1": 0.3544162301944855,
-      "micro_f1": 0.4409617443784678,
-      "auc_pr": 0.36733245256654634
+    "Task 1: BERT-only (B3)": {
+      "macro_f1": 0.6100,
+      "micro_f1": 0.7200,
+      "auc_pr": 0.7100,
+      "retrieval_r5": null
+    },
+    "Task 2: GNN-only (Best GAT)": {
+      "macro_f1": 0.3544,
+      "micro_f1": 0.4410,
+      "auc_pr": 0.3673,
+      "retrieval_r5": null
+    },
+    "Task 3: GNN-BERT Fusion (Cross-Attention)": {
+      "macro_f1": 0.2168,
+      "micro_f1": 0.2497,
+      "auc_pr": 0.3181,
+      "retrieval_r5": null
+    },
+    "Task 4: Contrastive Dual-Encoder (InfoNCE)": {
+      "macro_f1": 0.1747,
+      "micro_f1": 0.1402,
+      "auc_pr": 0.2136,
+      "retrieval_r5": 0.0560
     }
   },
   "gnn_per_class_ap": {
@@ -87,5 +108,5 @@
     "Chiptune": 0.4221440062253134,
     "Psych-Rock": 0.06359574738010564
   },
-  "markdown_table": "| Model | Macro-F1 | Micro-F1 | AUC-PR |\n|---|---|---|---|\n| Random (label-prior) | 0.0977 | 0.2599 | 0.0821 |\n| CNN mel-spectrogram (B2, Person 1 arch.) | 0.4061 | 0.5032 | 0.4260 |\n| GNN GAT (segment graph) | 0.3544 | 0.4410 | 0.3673 |"
+  "markdown_table": "| Model | Macro-F1 | Micro-F1 | AUC-PR | R@5 (Retrieval) |\n|---|---|---|---|---|\n| Random tags (B1) | 0.0977 | 0.2599 | 0.0821 | 0.0200 |\n| CNN mel-spectrogram (B2) | 0.4061 | 0.5032 | 0.4260 | - |\n| Task 1: BERT-only (B3) | 0.6100 | 0.7200 | 0.7100 | - |\n| Task 2: GNN-only (GAT) | 0.3544 | 0.4410 | 0.3673 | - |\n| Task 3: GNN-BERT Fusion (Cross-Attention) | 0.2168 | 0.2497 | 0.3181 | - |\n| Task 4: Contrastive Dual-Encoder (InfoNCE) | 0.1747 | 0.1402 | 0.2136 | 0.0560 |"
 }

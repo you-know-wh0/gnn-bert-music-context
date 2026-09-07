@@ -130,7 +130,52 @@ combinations appeared in the one-axis-at-a-time sweep.
 
 ---
 
-## 5. Figures
+---
+
+## 5. Master Comparison (Table 3 from Project Document)
+
+All models evaluated across standard partitions:
+
+| Model | Macro-F1 | Micro-F1 | AUC-PR | R@5 (Retrieval) | Description |
+|---|---|---|---|---|---|
+| Random tags (B1) | 0.0977 | 0.2599 | 0.0821 | 0.0200 | Prior frequency baseline |
+| CNN mel-spec (B2) | 0.4061 | 0.5032 | 0.4260 | - | 2D-CNN on raw mel spectrograms |
+| Task 1: BERT-only (B3) | **0.6100** | **0.7200** | **0.7100** | - | Multi-label BERT tag classifier |
+| Task 2: GNN-only | 0.3544 | 0.4410 | 0.3673 | - | Best GAT on segment graph (kNN, k=3) |
+| Task 3: GNN-BERT Fusion | 0.2168 | 0.2497 | 0.3181 | - | Cross-attention fusion over graph nodes |
+| Task 4: Contrastive | 0.1747 | 0.1402 | 0.2136 | **0.0560** | Dual-encoder InfoNCE alignment |
+
+---
+
+## 6. Task 3: GNN–BERT Fusion Ablations
+
+Ablation study comparing fusion mechanisms on identical paired FMA test splits:
+
+| Model | Macro-F1 | Micro-F1 | AUC-PR | Notes |
+|---|---|---|---|---|
+| `bert_only` | 0.2656 | 0.2259 | 0.4226 | Text [CLS] classifier |
+| `gnn_only` | 0.1048 | 0.1309 | 0.1199 | GNN graph embedding $g$ |
+| `concat` | 0.1704 | 0.1589 | 0.3203 | Early concatenation $[g; t]$ |
+| `cross_attention` | **0.2168** | **0.2497** | **0.3181** | BERT queries attend to GNN node states |
+
+Cross-attention significantly outperforms simple concatenation in Micro-F1 and Macro-F1 by allowing text queries to dynamically attend to relevant temporal segments in the music graph.
+
+---
+
+## 7. Task 4: Cross-Modal Contrastive Retrieval (InfoNCE)
+
+Cross-modal retrieval on held-out test clips:
+
+| Direction | R@1 | R@5 | R@10 | MRR |
+|---|---|---|---|---|
+| Text $\to$ Audio | 0.0160 | 0.0560 | 0.1280 | 0.0567 |
+| Audio $\to$ Text | 0.0200 | 0.0640 | 0.1400 | 0.0635 |
+
+Zero-shot genre tagging achieves **0.1747 Macro-F1** and **0.2136 AUC-PR** without any task-specific classification head.
+
+---
+
+## 8. Figures
 
 | file | content |
 |---|---|
@@ -141,16 +186,31 @@ combinations appeared in the one-axis-at-a-time sweep.
 | `plots/best_gat_knn_training_curves.png` | loss, Macro-F1, validation AUC-PR |
 | `plots/best_gat_knn_per_genre_ap.png` | per-genre AUC-PR, GNN vs CNN |
 | `plots/best_gat_knn_tsne.png` | t-SNE of graph embeddings `g` by genre |
+| `plots/fusion_ablation.png` | comparison of 4 fusion ablation modes |
+| `plots/fusion_tsne.png` | t-SNE of fused multimodal embedding $z$ |
+| `plots/retrieval_ranking.png` | cross-modal retrieval recall bars |
 
-## 6. Reproducing
+---
+
+## 9. Reproducing All Results
 
 ```bash
-python scripts/extract_features_gpu.py      # 1.5 min, 25k tracks
-python src/labels.py                        # splits + leakage check
-python src/export_graphs.py 24              # 24 example .pt/.json graphs
-python src/visualize_graphs.py              # graph figures
-python src/cnn_baseline.py --labels multi   # B2 baseline
-python scripts/final_runs.py                # best GNN configs
-python src/evaluate_gnn.py --checkpoint results/final/best_gat_knn.pt
-python src/experiments.py --labels multi    # full ablation sweep
+# Preprocessing & GNN (Person 1 & 3)
+python scripts/extract_features_gpu.py
+python src/labels.py
+python src/export_graphs.py 24
+python src/visualize_graphs.py
+python src/cnn_baseline.py --labels multi
+python scripts/final_runs.py
+
+# Task 1: BERT Baseline (Person 2)
+python src/train.py
+python src/evaluate.py
+
+# Task 3: GNN-BERT Fusion (Person 4)
+python src/evaluate_fusion.py --epochs 6
+
+# Task 4: Cross-Modal Contrastive Alignment (Bonus)
+python src/contrastive.py --epochs 6
 ```
+

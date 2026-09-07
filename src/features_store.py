@@ -15,15 +15,37 @@ _cache = {}
 FAILURES = "results/extraction_failures.json"
 
 
+NPZ_DIR = "data/processed/audio_features"
+
+
+def exists():
+    return os.path.exists(MEL_PATH) and os.path.exists(IDS_PATH)
+
+
 def load(mode="r"):
     if "ids" not in _cache:
-        ids = json.load(open(IDS_PATH))
         bad = set(json.load(open(FAILURES))) if os.path.exists(FAILURES) else set()
-        _cache["ids"] = ids
-        _cache["pos"] = {t: i for i, t in enumerate(ids)}
-        _cache["usable"] = [t for t in ids if t not in bad]
-        _cache["mel"] = np.load(MEL_PATH, mmap_mode=mode)
-        _cache["chroma"] = np.load(CHROMA_PATH, mmap_mode=mode)
+        if exists():
+            ids = json.load(open(IDS_PATH))
+            _cache["ids"] = ids
+            _cache["pos"] = {t: i for i, t in enumerate(ids)}
+            _cache["usable"] = [t for t in ids if t not in bad]
+            _cache["mel"] = np.load(MEL_PATH, mmap_mode=mode)
+            _cache["chroma"] = np.load(CHROMA_PATH, mmap_mode=mode)
+        elif os.path.isdir(NPZ_DIR):
+            files = [f[:-4] for f in os.listdir(NPZ_DIR) if f.endswith(".npz")]
+            files.sort()
+            _cache["ids"] = files
+            _cache["pos"] = {t: i for i, t in enumerate(files)}
+            _cache["usable"] = [t for t in files if t not in bad]
+            _cache["mel"] = None
+            _cache["chroma"] = None
+        else:
+            _cache["ids"] = []
+            _cache["pos"] = {}
+            _cache["usable"] = []
+            _cache["mel"] = None
+            _cache["chroma"] = None
     return _cache
 
 
@@ -44,8 +66,14 @@ def has(tid):
 
 def get(tid):
     s = load()
-    i = s["pos"][tid]
-    return s["mel"][i].astype(np.float32), s["chroma"][i].astype(np.float32)
+    if s["mel"] is not None:
+        i = s["pos"][tid]
+        return s["mel"][i].astype(np.float32), s["chroma"][i].astype(np.float32)
+    npz_file = os.path.join(NPZ_DIR, f"{tid}.npz")
+    with np.load(npz_file) as d:
+        mel = d["mel"].astype(np.float32)
+        chroma = d["chroma"].astype(np.float32)
+    return mel, chroma
 
 
 def stitch(tid):
@@ -53,6 +81,3 @@ def stitch(tid):
     mel, chroma = get(tid)
     return (np.concatenate(list(mel), axis=-1), np.concatenate(list(chroma), axis=-1))
 
-
-def exists():
-    return os.path.exists(MEL_PATH) and os.path.exists(IDS_PATH)

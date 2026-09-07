@@ -1,0 +1,25 @@
+{
+  "query_index": 7,
+  "query_text": "A International music piece titled 'Desconocido' by F\u00f3sforo from the album 'Macondo'.",
+  "correct_track_id": "000708",
+  "retrieved_top_3": [
+    {
+      "rank": 1,
+      "track_id": "011019",
+      "similarity_score": 0.5098358988761902,
+      "is_exact_match": false
+    },
+    {
+      "rank": 2,
+      "track_id": "014602",
+      "similarity_score": 0.49780428409576416,
+      "is_exact_match": false
+    },
+    {
+      "rank": 3,
+      "track_id": "007385",
+      "similarity_score": 0.47223055362701416,
+      "is_exact_match": false
+    }
+  ]
+}

@@ -121,7 +121,7 @@ class FusionModel(nn.Module):
             nn.Linear(fused_dim, head_hidden), nn.ReLU(),
             nn.Dropout(head_dropout), nn.Linear(head_hidden, num_labels))
 
-    def forward(self, input_ids=None, attention_mask=None, x=None, edge_index=None, batch=None):
+    def encode(self, input_ids=None, attention_mask=None, x=None, edge_index=None, batch=None):
         text_emb = graph_emb = node_emb = None
         if self.bert is not None:
             out = self.bert(input_ids=input_ids, attention_mask=attention_mask)
@@ -137,7 +137,10 @@ class FusionModel(nn.Module):
             fused = torch.cat([text_emb, graph_emb], dim=1)
         else:
             fused = self.cross_attn(text_emb, node_emb, batch)
+        return fused
 
+    def forward(self, input_ids=None, attention_mask=None, x=None, edge_index=None, batch=None):
+        fused = self.encode(input_ids, attention_mask, x, edge_index, batch)
         return self.classifier(fused)
 
 

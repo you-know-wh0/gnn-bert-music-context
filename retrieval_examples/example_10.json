@@ -1,0 +1,25 @@
+{
+  "query_index": 9,
+  "query_text": "A Experimental music piece titled 'INXS' by Nautical Almanac from the album '\"Something\" Euro Tour 2005'.",
+  "correct_track_id": "000854",
+  "retrieved_top_3": [
+    {
+      "rank": 1,
+      "track_id": "014663",
+      "similarity_score": 0.5286127924919128,
+      "is_exact_match": false
+    },
+    {
+      "rank": 2,
+      "track_id": "005510",
+      "similarity_score": 0.5234408378601074,
+      "is_exact_match": false
+    },
+    {
+      "rank": 3,
+      "track_id": "012354",
+      "similarity_score": 0.5170997381210327,
+      "is_exact_match": false
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "query_index": 0,
+  "query_text": "A Rock music piece titled 'Gopacapulco' by Ariel Pink's Haunted Graffiti from the album 'Scared Famous'.",
+  "correct_track_id": "000181",
+  "retrieved_top_3": [
+    {
+      "rank": 1,
+      "track_id": "007202",
+      "similarity_score": 0.4552207291126251,
+      "is_exact_match": false
+    },
+    {
+      "rank": 2,
+      "track_id": "014653",
+      "similarity_score": 0.45307958126068115,
+      "is_exact_match": false
+    },
+    {
+      "rank": 3,
+      "track_id": "013577",
+      "similarity_score": 0.44931066036224365,
+      "is_exact_match": false
+    }
+  ]
+}

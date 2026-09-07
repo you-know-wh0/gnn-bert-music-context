@@ -75,18 +75,37 @@ def build_cache(graph="segment", n_nodes=30, feat="mel+chroma", with_std=False,
 
     if graph == "chord":
         out = []
-        for block in chunks(rows, CHUNK):
-            chroma = as_time_major(store["chroma"][block], features_store.CHROMA)
-            seqs = gb.chord_sequence_batch(chroma, chord_smooth)
-            for seq, ch in zip(seqs, chroma):
-                out.append(gb.chord_graph_from_sequence(seq, ch.astype(np.float32)))
+        if store["chroma"] is not None:
+            for block in chunks(rows, CHUNK):
+                chroma = as_time_major(store["chroma"][block], features_store.CHROMA)
+                seqs = gb.chord_sequence_batch(chroma, chord_smooth)
+                for seq, ch in zip(seqs, chroma):
+                    out.append(gb.chord_graph_from_sequence(seq, ch.astype(np.float32)))
+        else:
+            for block_ids in chunks(ids, CHUNK):
+                chromas = [features_store.stitch(tid)[1] for tid in block_ids]
+                chroma = np.stack(chromas)
+                seqs = gb.chord_sequence_batch(chroma, chord_smooth)
+                for seq, ch in zip(seqs, chroma):
+                    out.append(gb.chord_graph_from_sequence(seq, ch.astype(np.float32)))
         payload = {"ids": ids, "graphs": out}
     else:
         parts = []
-        for block in chunks(rows, CHUNK):
-            mel = as_time_major(store["mel"][block], features_store.MELS)
-            chroma = as_time_major(store["chroma"][block], features_store.CHROMA)
-            parts.append(gb.node_features_batch(mel, chroma, n_nodes, feat, with_std))
+        if store["mel"] is not None:
+            for block in chunks(rows, CHUNK):
+                mel = as_time_major(store["mel"][block], features_store.MELS)
+                chroma = as_time_major(store["chroma"][block], features_store.CHROMA)
+                parts.append(gb.node_features_batch(mel, chroma, n_nodes, feat, with_std))
+        else:
+            for block_ids in chunks(ids, CHUNK):
+                mels, chromas = [], []
+                for tid in block_ids:
+                    m, c = features_store.stitch(tid)
+                    mels.append(m)
+                    chromas.append(c)
+                mel = np.stack(mels)
+                chroma = np.stack(chromas)
+                parts.append(gb.node_features_batch(mel, chroma, n_nodes, feat, with_std))
         payload = {"ids": ids, "x": np.concatenate(parts)}
 
     torch.save(payload, path)

@@ -1,0 +1,25 @@
+{
+  "query_index": 6,
+  "query_text": "A International music piece titled 'Cochabamba' by F\u00f3sforo from the album 'Macondo'.",
+  "correct_track_id": "000707",
+  "retrieved_top_3": [
+    {
+      "rank": 1,
+      "track_id": "011019",
+      "similarity_score": 0.505003035068512,
+      "is_exact_match": false
+    },
+    {
+      "rank": 2,
+      "track_id": "010389",
+      "similarity_score": 0.4921448826789856,
+      "is_exact_match": false
+    },
+    {
+      "rank": 3,
+      "track_id": "007385",
+      "similarity_score": 0.4899437725543976,
+      "is_exact_match": false
+    }
+  ]
+}
