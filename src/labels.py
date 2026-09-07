@@ -8,15 +8,17 @@ import numpy as np
 
 import os
 
-TRACKS_CSV = "data/raw/fma_medium/metadata/fma_metadata/tracks.csv"
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+TRACKS_CSV = os.path.join(ROOT, "data/raw/fma_medium/metadata/fma_metadata/tracks.csv")
 if not os.path.exists(TRACKS_CSV):
-    TRACKS_CSV = "data/raw/metadata/fma_metadata/tracks.csv"
+    TRACKS_CSV = os.path.join(ROOT, "data/raw/metadata/fma_metadata/tracks.csv")
 
-GENRES_CSV = "data/raw/fma_medium/metadata/fma_metadata/genres.csv"
+GENRES_CSV = os.path.join(ROOT, "data/raw/fma_medium/metadata/fma_metadata/genres.csv")
 if not os.path.exists(GENRES_CSV):
-    GENRES_CSV = "data/raw/metadata/fma_metadata/genres.csv"
+    GENRES_CSV = os.path.join(ROOT, "data/raw/metadata/fma_metadata/genres.csv")
 
-SPLITS_DIR = "data/splits"
+SPLITS_DIR = os.path.join(ROOT, "data/splits")
 SPLIT_FILES = {"training": "training.json", "validation": "validation.json", "test": "test.json"}
 
 

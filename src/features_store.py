@@ -3,19 +3,20 @@ import os
 
 import numpy as np
 
-STORE = "data/processed/store"
-MEL_PATH = f"{STORE}/mel_f16.npy"
-CHROMA_PATH = f"{STORE}/chroma_f16.npy"
-IDS_PATH = f"{STORE}/track_ids.json"
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+STORE = os.path.join(ROOT, "data", "processed", "store")
+MEL_PATH = os.path.join(STORE, "mel_f16.npy")
+CHROMA_PATH = os.path.join(STORE, "chroma_f16.npy")
+IDS_PATH = os.path.join(STORE, "track_ids.json")
 SEGS, MELS, CHROMA, FRAMES = 6, 128, 12, 215
 
 _cache = {}
 
 
-FAILURES = "results/extraction_failures.json"
+FAILURES = os.path.join(ROOT, "results", "extraction_failures.json")
 
 
-NPZ_DIR = "data/processed/audio_features"
+NPZ_DIR = os.path.join(ROOT, "data", "processed", "audio_features")
 
 
 def exists():
