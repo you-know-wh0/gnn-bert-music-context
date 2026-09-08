@@ -72,7 +72,6 @@ An interactive feature exploration notebook is located in [`notebooks/eda.ipynb`
 
 Music structure graphs over FMA-medium and GraphSAGE/GAT/GCN/GIN encoders, evaluated
 against the CNN mel-spectrogram baseline. Full write-up: [`results/RESULTS.md`](results/RESULTS.md).
-Integration notes: [`person_3_handover.md`](person_3_handover.md).
 
 ### Graphs
 
@@ -159,7 +158,7 @@ Dual-encoder GNN-BERT trained using symmetric InfoNCE loss to align audio graphs
 ## Final Submission Deliverables
 
 1.  **Demo Notebook**: Interactive end-to-end inference in [`notebooks/demo_context.ipynb`](notebooks/demo_context.ipynb).
-2.  **Academic Final Report (PDF)**: 8-page IEEE-formatted paper in [`report/final_report.pdf`](report/final_report.pdf) (LaTeX source in [`report/paper.tex`](report/paper.tex)).
+2.  **Academic Final Report (PDF)**: Final project paper in [`report/report.pdf`](report/report.pdf).
 3.  **Preprocessed Graph Samples**: 24 sample `.pt` and `.json` graphs in `data/processed/graph_samples/`.
 4.  **Full Model Checkpoints & Metrics**: Stored in `results/final/`, `results/fusion/`, and `results/metrics.json`.
 
